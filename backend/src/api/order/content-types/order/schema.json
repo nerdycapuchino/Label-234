@@ -1,0 +1,54 @@
+{
+  "kind": "collectionType",
+  "collectionName": "orders",
+  "info": {
+    "singularName": "order",
+    "pluralName": "orders",
+    "displayName": "Order",
+    "description": "Customer orders including bespoke tailoring specifics."
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "order_id": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "total_amount": {
+      "type": "decimal",
+      "required": true
+    },
+    "payment_status": {
+      "type": "enumeration",
+      "enum": ["pending", "paid", "failed", "refunded"],
+      "default": "pending"
+    },
+    "production_status": {
+      "type": "enumeration",
+      "enum": ["order_placed", "fabric_cut", "stitching", "quality_check", "shipped", "delivered"],
+      "default": "order_placed"
+    },
+    "customer_name": {
+      "type": "string",
+      "required": true
+    },
+    "customer_email": {
+      "type": "email",
+      "required": true
+    },
+    "measurements": {
+      "type": "json"
+    },
+    "stitching_remarks": {
+      "type": "text"
+    },
+    "products": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product.product"
+    }
+  }
+}

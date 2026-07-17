@@ -1,40 +1,30 @@
-import React from 'react';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 export default function ReturnsPage() {
   return (
-    <main className="font-sans relative bg-brand-warmWhite min-h-screen">
-      <Header />
-      
-      <section className="max-w-[800px] mx-auto px-6 md:px-12 py-20">
-        <h1 className="font-serif text-3xl md:text-4xl text-center mb-12 tracking-[0.1em]">Returns & Refunds</h1>
+    <main className="min-h-screen bg-brand-warmWhite font-sans text-brand-charcoal">
+      <Header variant="dark" />
+      <div className="max-w-[1920px] mx-auto pt-32 px-6 md:px-12 pb-24 max-w-3xl">
+        <h1 className="font-serif text-4xl mb-12 text-center">Returns & Refunds</h1>
         
-        <div className="prose prose-sm md:prose-base prose-neutral mx-auto opacity-80 text-brand-charcoal leading-relaxed">
-          <p className="mb-6">
-            We want you to love the fabrics you purchase from Label_234. If you are not entirely satisfied with your purchase, we're here to help.
-          </p>
-          
-          <h3 className="font-serif text-xl mt-8 mb-4">Eligibility for Returns</h3>
-          <ul className="list-disc pl-5 mb-6 space-y-2">
-            <li>Returns are accepted within 7 days of delivery.</li>
-            <li>Items must be unused, unwashed, and in the exact condition you received them.</li>
-            <li>Fabrics must not be cut or altered in any way.</li>
-            <li><strong>Note:</strong> Customized orders (Stitch For You) are final sale and cannot be returned or exchanged.</li>
-          </ul>
+        <div className="flex flex-col gap-8">
+          <section>
+            <h3 className="font-bold text-[13px] mb-3 uppercase tracking-widest">Fabric Orders</h3>
+            <p className="text-[13px] text-brand-charcoal/80 mb-4">
+              We accept returns for unstitched fabric within 7 days of delivery, provided the fabric is unused, unwashed, and in its original condition. Once we receive the returned item, a full refund will be initiated to your original payment method.
+            </p>
+          </section>
 
-          <h3 className="font-serif text-xl mt-8 mb-4">Refund Process</h3>
-          <p className="mb-6">
-            Once we receive your returned item, our quality team will inspect it. We will notify you on the status of your refund. If approved, the refund will be initiated to your original method of payment within 5-7 business days.
-          </p>
-
-          <h3 className="font-serif text-xl mt-8 mb-4">How to Initiate a Return</h3>
-          <p className="mb-6">
-            To initiate a return, please contact our support team at returns@label234.com with your order number and reason for return. We will provide you with further instructions on how to send the item back to us.
-          </p>
+          <section>
+            <h3 className="font-bold text-[13px] mb-3 uppercase tracking-widest">Bespoke Stitched Garments</h3>
+            <p className="text-[13px] text-brand-charcoal/80">
+              Because bespoke garments are custom tailored to your exact measurements, they are <strong>non-returnable and non-refundable</strong>. 
+              However, if there is a fitting issue or a defect in craftsmanship, please contact us within 3 days of delivery and we will offer a complimentary alteration service.
+            </p>
+          </section>
         </div>
-      </section>
-
+      </div>
       <Footer />
     </main>
   );

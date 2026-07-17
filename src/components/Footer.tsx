@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Script from 'next/script';
 
 export default function Footer() {
   return (
@@ -14,7 +15,8 @@ export default function Footer() {
           </div>
           {/* SnapWidget iframe - Replace the src with your actual generated widget ID if different */}
           <div className="w-full overflow-hidden flex justify-center">
-             <iframe src="https://snapwidget.com/embed/1070563" className="snapwidget-widget w-full max-w-[1200px] h-[250px]" allowtransparency="true" frameBorder="0" scrolling="no" style={{border: "none", overflow: "hidden"}}></iframe>
+            <Script src="https://snapwidget.com/js/snapwidget.js" strategy="lazyOnload" />
+            <iframe src="https://snapwidget.com/embed/1070563" className="snapwidget-widget w-full max-w-[1200px] h-[250px]" allowTransparency={true} frameBorder="0" scrolling="no" style={{border: "none", overflow: "hidden"}}></iframe>
           </div>
         </div>
 

@@ -1,53 +1,43 @@
-import React from 'react';
-import Image from 'next/image';
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import Link from "next/link";
 
-export default function StitchForYou() {
+export default function StitchPage() {
   return (
-    <div className="bg-brand-warmWhite min-h-screen pt-[120px] pb-24">
-      <div className="max-w-[1200px] mx-auto px-6 md:px-12">
-        <div className="text-center mb-16">
-          <h1 className="font-serif text-4xl md:text-5xl tracking-[0.1em] text-brand-charcoal mb-4">Stitch For You</h1>
-          <p className="text-[13px] tracking-widest uppercase opacity-70 mb-8">Custom Tailoring Experience</p>
-          <div className="w-12 h-[1px] bg-brand-charcoal mx-auto"></div>
+    <main className="min-h-screen bg-brand-warmWhite font-sans text-brand-charcoal">
+      <Header variant="dark" />
+      <div className="max-w-[1920px] mx-auto pt-32 px-6 md:px-12 pb-24 text-center max-w-4xl">
+        <h1 className="font-serif text-4xl mb-8">Stitch For You</h1>
+        <p className="text-[13px] leading-relaxed text-brand-charcoal/80 mb-12">
+          Turn any exclusive fabric into a masterpiece. 
+          Our bespoke tailoring service lets you customize the perfect ethnic garment right from your screen.
+        </p>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+          <div className="border border-brand-border p-8 bg-brand-ivory">
+            <span className="text-3xl font-serif text-brand-charcoal opacity-50 mb-4 block">01</span>
+            <h3 className="font-bold uppercase tracking-widest text-[11px] mb-2">Select Your Fabric</h3>
+            <p className="text-[13px] text-brand-textMuted">Browse our limited-edition collections and reserve your unique piece.</p>
+          </div>
+          <div className="border border-brand-border p-8 bg-brand-ivory">
+            <span className="text-3xl font-serif text-brand-charcoal opacity-50 mb-4 block">02</span>
+            <h3 className="font-bold uppercase tracking-widest text-[11px] mb-2">Design & Measure</h3>
+            <p className="text-[13px] text-brand-textMuted">Choose necklines, sleeves, and provide your exact measurements online.</p>
+          </div>
+          <div className="border border-brand-border p-8 bg-brand-ivory">
+            <span className="text-3xl font-serif text-brand-charcoal opacity-50 mb-4 block">03</span>
+            <h3 className="font-bold uppercase tracking-widest text-[11px] mb-2">Track & Receive</h3>
+            <p className="text-[13px] text-brand-textMuted">Watch your garment come to life in your dashboard with production updates.</p>
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-          <div className="aspect-[3/4] bg-brand-sand/30 relative flex items-center justify-center">
-            {/* Placeholder for an image */}
-            <p className="text-[11px] uppercase tracking-widest opacity-50">Image Placeholder</p>
-          </div>
-          <div>
-            <h2 className="font-serif text-2xl tracking-[0.05em] mb-6">Perfect Fit, Every Time.</h2>
-            <p className="text-sm opacity-80 leading-relaxed mb-8">
-              At Label_234, we believe that luxury is in the fit. Our exclusive "Stitch For You" service ensures that the premium fabrics you select are crafted to your exact measurements, providing a silhouette that flatters and empowers.
-            </p>
-            
-            <h3 className="text-[12px] uppercase tracking-widest font-semibold mb-4">How it works</h3>
-            <ul className="space-y-4 text-sm opacity-80">
-              <li className="flex gap-4">
-                <span className="font-serif text-lg">01</span>
-                <span>Choose your preferred fabric from our curated collections.</span>
-              </li>
-              <li className="flex gap-4">
-                <span className="font-serif text-lg">02</span>
-                <span>Select a silhouette or provide your own design reference.</span>
-              </li>
-              <li className="flex gap-4">
-                <span className="font-serif text-lg">03</span>
-                <span>Submit your measurements using our detailed guide.</span>
-              </li>
-              <li className="flex gap-4">
-                <span className="font-serif text-lg">04</span>
-                <span>Receive your custom-stitched masterpiece at your doorstep.</span>
-              </li>
-            </ul>
-
-            <button className="mt-10 px-8 py-4 bg-brand-charcoal text-white text-[11px] tracking-widest uppercase hover:bg-brand-charcoal/90 transition-colors">
-              Book a Consultation
-            </button>
-          </div>
+        <div className="mt-16">
+          <Link href="/collections" className="bg-brand-softBlack text-white py-4 px-12 text-[11px] font-semibold tracking-widest uppercase hover:bg-black transition-colors inline-block">
+            CHOOSE A FABRIC TO START
+          </Link>
         </div>
       </div>
-    </div>
+      <Footer />
+    </main>
   );
 }

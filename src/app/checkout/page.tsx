@@ -1,158 +1,92 @@
-"use client";
-
-import React, { useState } from 'react';
-import { useRouter } from 'next/navigation';
-import { useCartStore } from '@/store/cartStore';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 export default function CheckoutPage() {
-  const router = useRouter();
-  const { items, getTotalPrice, clearCart } = useCartStore();
-  const shipping = getTotalPrice() > 5000 ? 0 : 150;
-  const total = getTotalPrice() + shipping;
-
-  const [loading, setLoading] = useState(false);
-
-  const handlePlaceOrder = (e: React.FormEvent) => {
-    e.preventDefault();
-    setLoading(true);
-
-    // Simulate API request to backend (Strapi) to create order
-    setTimeout(() => {
-      clearCart();
-      alert('Order Placed Successfully! (Cash on Delivery)');
-      setLoading(false);
-      router.push('/');
-    }, 1500);
-  };
-
-  if (items.length === 0) {
-    return (
-      <main className="font-sans relative bg-brand-warmWhite min-h-screen">
-        <Header />
-        <div className="text-center py-32">
-          <p className="mb-4">Your cart is empty.</p>
-          <button onClick={() => router.push('/collections')} className="underline">Go Shopping</button>
-        </div>
-      </main>
-    );
-  }
-
   return (
-    <main className="font-sans relative bg-brand-warmWhite min-h-screen">
-      <Header />
+    <main className="min-h-screen bg-brand-warmWhite font-sans text-brand-charcoal">
+      <Header variant="dark" />
       
-      <section className="max-w-[1200px] mx-auto px-6 md:px-12 py-16">
-        <h1 className="font-serif text-3xl tracking-[0.1em] mb-10 text-center">Checkout</h1>
+      <div className="max-w-[1920px] mx-auto pt-32 px-6 md:px-12 pb-24">
+        <h1 className="font-serif text-4xl mb-8 border-b border-brand-border pb-6">Checkout</h1>
         
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-          {/* Checkout Form */}
-          <div>
-            <form onSubmit={handlePlaceOrder} className="flex flex-col gap-8">
-              <div>
-                <h3 className="font-serif text-xl mb-4">Contact Information</h3>
-                <div className="grid gap-4">
-                  <div>
-                    <label className="block text-[11px] tracking-widest uppercase font-semibold mb-2">Email</label>
-                    <input type="email" required className="w-full border-b border-brand-border bg-transparent pb-2 focus:outline-none focus:border-brand-charcoal" />
-                  </div>
-                  <div>
-                    <label className="block text-[11px] tracking-widest uppercase font-semibold mb-2">Phone</label>
-                    <input type="tel" required className="w-full border-b border-brand-border bg-transparent pb-2 focus:outline-none focus:border-brand-charcoal" />
-                  </div>
-                </div>
+        <div className="grid grid-cols-1 lg:grid-cols-[60%_40%] gap-12">
+          {/* Left Column: Forms */}
+          <div className="flex flex-col gap-10">
+            
+            {/* Contact Info */}
+            <section>
+              <h2 className="text-[13px] font-bold uppercase tracking-widest mb-6">1. Contact Information</h2>
+              <div className="grid grid-cols-1 gap-4">
+                <input type="email" placeholder="Email Address" className="w-full border border-brand-border p-3 text-[13px] outline-none focus:border-brand-charcoal transition-colors bg-transparent" />
+                <input type="tel" placeholder="Phone Number" className="w-full border border-brand-border p-3 text-[13px] outline-none focus:border-brand-charcoal transition-colors bg-transparent" />
               </div>
+            </section>
 
-              <div>
-                <h3 className="font-serif text-xl mb-4">Shipping Address</h3>
-                <div className="grid grid-cols-2 gap-6">
-                  <div className="col-span-2 sm:col-span-1">
-                    <label className="block text-[11px] tracking-widest uppercase font-semibold mb-2">First Name</label>
-                    <input type="text" required className="w-full border-b border-brand-border bg-transparent pb-2 focus:outline-none focus:border-brand-charcoal" />
-                  </div>
-                  <div className="col-span-2 sm:col-span-1">
-                    <label className="block text-[11px] tracking-widest uppercase font-semibold mb-2">Last Name</label>
-                    <input type="text" required className="w-full border-b border-brand-border bg-transparent pb-2 focus:outline-none focus:border-brand-charcoal" />
-                  </div>
-                  <div className="col-span-2">
-                    <label className="block text-[11px] tracking-widest uppercase font-semibold mb-2">Address</label>
-                    <input type="text" required className="w-full border-b border-brand-border bg-transparent pb-2 focus:outline-none focus:border-brand-charcoal" />
-                  </div>
-                  <div className="col-span-2 sm:col-span-1">
-                    <label className="block text-[11px] tracking-widest uppercase font-semibold mb-2">City</label>
-                    <input type="text" required className="w-full border-b border-brand-border bg-transparent pb-2 focus:outline-none focus:border-brand-charcoal" />
-                  </div>
-                  <div className="col-span-2 sm:col-span-1">
-                    <label className="block text-[11px] tracking-widest uppercase font-semibold mb-2">PIN Code</label>
-                    <input type="text" required className="w-full border-b border-brand-border bg-transparent pb-2 focus:outline-none focus:border-brand-charcoal" />
-                  </div>
-                </div>
+            {/* Shipping Info */}
+            <section>
+              <h2 className="text-[13px] font-bold uppercase tracking-widest mb-6">2. Shipping Address</h2>
+              <div className="grid grid-cols-2 gap-4">
+                <input type="text" placeholder="First Name" className="w-full border border-brand-border p-3 text-[13px] outline-none focus:border-brand-charcoal transition-colors bg-transparent" />
+                <input type="text" placeholder="Last Name" className="w-full border border-brand-border p-3 text-[13px] outline-none focus:border-brand-charcoal transition-colors bg-transparent" />
+                <input type="text" placeholder="Address Line 1" className="col-span-2 w-full border border-brand-border p-3 text-[13px] outline-none focus:border-brand-charcoal transition-colors bg-transparent" />
+                <input type="text" placeholder="City" className="w-full border border-brand-border p-3 text-[13px] outline-none focus:border-brand-charcoal transition-colors bg-transparent" />
+                <input type="text" placeholder="Postal Code" className="w-full border border-brand-border p-3 text-[13px] outline-none focus:border-brand-charcoal transition-colors bg-transparent" />
               </div>
+            </section>
 
-              <div>
-                <h3 className="font-serif text-xl mb-4">Payment</h3>
-                <div className="p-4 border border-brand-border bg-white flex items-center justify-between">
-                  <span className="font-medium">Cash on Delivery (COD)</span>
-                  <div className="w-4 h-4 rounded-full border-4 border-black"></div>
-                </div>
-                <p className="text-[10px] opacity-60 mt-2">*Online payments (Razorpay) will be integrated in the next phase.</p>
+            {/* Payment Method */}
+            <section>
+              <h2 className="text-[13px] font-bold uppercase tracking-widest mb-6">3. Payment</h2>
+              <div className="border border-brand-border p-6 flex flex-col items-center justify-center text-center gap-4 bg-brand-ivory">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" className="icon-stroke opacity-50">
+                  <rect x="2" y="5" width="20" height="14" rx="2" ry="2"></rect>
+                  <line x1="2" y1="10" x2="22" y2="10"></line>
+                </svg>
+                <p className="text-[13px] text-brand-charcoal/80">You will be redirected to Razorpay to complete your purchase securely.</p>
               </div>
-
-              <button 
-                type="submit" 
-                disabled={loading}
-                className="w-full bg-brand-charcoal text-white text-[11px] tracking-widest uppercase font-semibold py-5 hover:bg-black transition-colors disabled:opacity-50"
-              >
-                {loading ? 'Processing...' : `Place Order (₹ ${total.toLocaleString()})`}
-              </button>
-            </form>
+            </section>
           </div>
 
-          {/* Order Summary */}
-          <div>
-            <div className="bg-white border border-brand-border p-8 sticky top-24">
-              <h3 className="font-serif text-xl mb-6">In Your Cart</h3>
-              
-              <div className="flex flex-col gap-6 mb-6 max-h-[400px] overflow-y-auto pr-2">
-                {items.map((item) => (
-                  <div key={item.id} className="flex gap-4 items-center">
-                    <div className="w-16 h-20 shrink-0 bg-brand-sand relative">
-                      <img src={item.image} alt={item.title} className="w-full h-full object-cover" />
-                      <span className="absolute -top-2 -right-2 w-5 h-5 bg-brand-charcoal text-white rounded-full flex items-center justify-center text-[10px] font-bold">
-                        {item.quantity}
-                      </span>
-                    </div>
-                    <div className="flex-1">
-                      <h4 className="font-semibold text-xs mb-1">{item.title}</h4>
-                      <p className="text-xs opacity-70">₹ {item.price.toLocaleString()} / mtr</p>
-                    </div>
-                    <div className="font-medium text-sm">
-                      ₹ {(item.price * item.quantity).toLocaleString()}
-                    </div>
-                  </div>
-                ))}
+          {/* Right Column: Order Summary */}
+          <div className="bg-brand-ivory border border-brand-border p-8 h-fit">
+            <h2 className="text-[13px] font-bold uppercase tracking-widest mb-6">Order Summary</h2>
+            
+            <div className="flex gap-4 border-b border-brand-border pb-6 mb-6">
+              <div className="w-20 h-24 bg-brand-sand shrink-0">
+                <img src="https://images.unsplash.com/photo-1620799140188-3b2a02fd9a77?q=80&w=200&auto=format&fit=crop" alt="Item" className="w-full h-full object-cover" />
               </div>
-
-              <div className="border-t border-brand-border pt-6 flex flex-col gap-4 text-sm">
-                <div className="flex justify-between">
-                  <span className="opacity-70">Subtotal</span>
-                  <span className="font-medium">₹ {getTotalPrice().toLocaleString()}</span>
+              <div className="flex flex-col justify-between w-full">
+                <div>
+                  <h3 className="text-[13px] font-semibold">Pastel Chikankari Cotton</h3>
+                  <p className="text-[11px] text-brand-textMuted mt-1">2.5 Metres</p>
                 </div>
-                <div className="flex justify-between">
-                  <span className="opacity-70">Shipping</span>
-                  <span className="font-medium">{shipping === 0 ? 'Free' : `₹ ${shipping}`}</span>
-                </div>
-                <div className="flex justify-between items-center mt-4 pt-4 border-t border-brand-border">
-                  <span className="font-semibold text-lg">Total</span>
-                  <span className="font-serif text-xl">₹ {total.toLocaleString()}</span>
-                </div>
+                <p className="text-[13px] font-semibold text-right">₹ 6,125</p>
               </div>
             </div>
+
+            <div className="flex flex-col gap-3 text-[13px] mb-6 border-b border-brand-border pb-6">
+              <div className="flex justify-between">
+                <span className="text-brand-charcoal/80">Subtotal</span>
+                <span>₹ 6,125</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-brand-charcoal/80">Shipping</span>
+                <span>Free</span>
+              </div>
+            </div>
+
+            <div className="flex justify-between items-center mb-8">
+              <span className="font-serif text-xl">Total</span>
+              <span className="font-serif text-xl">₹ 6,125</span>
+            </div>
+
+            <button className="w-full bg-brand-softBlack text-white py-4 text-[11px] font-semibold tracking-widest uppercase hover:bg-black transition-colors">
+              PAY SECURELY WITH RAZORPAY
+            </button>
           </div>
         </div>
-      </section>
-
+      </div>
+      
       <Footer />
     </main>
   );

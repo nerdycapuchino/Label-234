@@ -1,0 +1,45 @@
+{
+  "kind": "collectionType",
+  "collectionName": "appointments",
+  "info": {
+    "singularName": "appointment",
+    "pluralName": "appointments",
+    "displayName": "Appointment",
+    "description": "Boutique consultation and measurement appointments."
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "customer_name": {
+      "type": "string",
+      "required": true
+    },
+    "customer_email": {
+      "type": "email",
+      "required": true
+    },
+    "customer_phone": {
+      "type": "string",
+      "required": true
+    },
+    "appointment_date": {
+      "type": "datetime",
+      "required": true
+    },
+    "appointment_type": {
+      "type": "enumeration",
+      "enum": ["measurement", "fabric_consultation", "fitting"],
+      "default": "fabric_consultation"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": ["requested", "confirmed", "completed", "cancelled"],
+      "default": "requested"
+    },
+    "notes": {
+      "type": "text"
+    }
+  }
+}
