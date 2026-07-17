@@ -3,11 +3,25 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { Search, User, Heart, ShoppingBag, ChevronDown, Plus, Minus, Maximize2 } from 'lucide-react';
+import { useCartStore } from '@/store/cartStore';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
 export default function ProductDetail() {
   const [length, setLength] = useState(2.5);
+  const addItem = useCartStore((state) => state.addItem);
+
+  const handleAddToCart = () => {
+    addItem({
+      id: 'prod_1',
+      title: 'Pastel Chikankari Cotton',
+      price: 2450,
+      image: 'https://images.unsplash.com/photo-1620799140188-3b2a02fd9a77?q=80&w=1200&auto=format&fit=crop',
+      quantity: 1,
+      length: length,
+    });
+    alert('Added to Cart!');
+  };
 
   return (
     <main className="font-sans relative bg-brand-warmWhite">
@@ -159,7 +173,10 @@ export default function ProductDetail() {
 
             {/* Actions: Side-by-side Buttons */}
             <div className="grid grid-cols-2 gap-4 mb-6">
-              <button className="bg-brand-softBlack text-white py-4 text-xs font-semibold tracking-widest uppercase rounded-sm hover:bg-black transition-colors active:scale-95">
+              <button 
+                onClick={handleAddToCart}
+                className="bg-brand-softBlack text-white py-4 text-xs font-semibold tracking-widest uppercase rounded-sm hover:bg-black transition-colors active:scale-95"
+              >
                 ADD TO BAG
               </button>
               <button className="bg-white border border-brand-charcoal text-brand-charcoal py-4 text-xs font-semibold tracking-widest uppercase rounded-sm hover:bg-brand-ivory transition-colors active:scale-95">

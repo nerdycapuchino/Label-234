@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Search, User, Heart, ShoppingBag, ChevronDown, Menu, X } from 'lucide-react';
+import { useCartStore } from '@/store/cartStore';
 
 interface HeaderProps {
   variant?: 'transparent' | 'solid';
@@ -13,7 +14,7 @@ export default function Header({ variant = 'solid' }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
-
+  const cartItemsCount = useCartStore((state) => state.items.reduce((total, item) => total + item.quantity, 0));
   useEffect(() => {
     if (variant !== 'transparent') return;
 
@@ -63,8 +64,8 @@ export default function Header({ variant = 'solid' }: HeaderProps) {
 
           {/* Right Nav (Desktop & Mobile Icons) */}
           <nav className="flex gap-4 md:gap-8 text-[11px] tracking-[0.15em] font-medium items-center justify-end w-1/3">
-            <a href="#" className="hidden lg:block opacity-80 hover:opacity-100">JOURNAL</a>
-            <a href="#" className="hidden lg:block opacity-80 hover:opacity-100 mr-4">ABOUT US</a>
+            <Link href="/journal" className="hidden lg:block opacity-80 hover:opacity-100">JOURNAL</Link>
+            <Link href="/about" className="hidden lg:block opacity-80 hover:opacity-100 mr-4">ABOUT US</Link>
             <div className="flex gap-3 md:gap-5 items-center">
               <button className="hidden sm:block opacity-80 hover:opacity-100 transition-transform active:scale-95">
                 <Search size={18} strokeWidth={1.2} className={!isTransparent ? 'icon-stroke' : ''} />
@@ -76,10 +77,14 @@ export default function Header({ variant = 'solid' }: HeaderProps) {
                 <Heart size={18} strokeWidth={1.2} className={!isTransparent ? 'icon-stroke' : ''} />
                 {!isTransparent && <span className="absolute -top-1.5 -right-2 bg-brand-softBlack text-white text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center">2</span>}
               </button>
-              <button className="opacity-80 hover:opacity-100 transition-transform active:scale-95 relative">
+              <Link href="/cart" className="opacity-80 hover:opacity-100 transition-transform active:scale-95 relative cursor-pointer">
                 <ShoppingBag size={18} strokeWidth={1.2} className={!isTransparent ? 'icon-stroke' : ''} />
-                {!isTransparent && <span className="absolute -top-1.5 -right-2 bg-brand-softBlack text-white text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center">1</span>}
-              </button>
+                {(!isTransparent || cartItemsCount > 0) && cartItemsCount > 0 && (
+                  <span className="absolute -top-1.5 -right-2 bg-brand-softBlack text-white text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center">
+                    {cartItemsCount}
+                  </span>
+                )}
+              </Link>
             </div>
           </nav>
         </div>
@@ -101,8 +106,8 @@ export default function Header({ variant = 'solid' }: HeaderProps) {
           <Link href="/" onClick={() => setMobileMenuOpen(false)} className="pb-4 border-b border-brand-border/50">Shop</Link>
           <Link href="/collections" onClick={() => setMobileMenuOpen(false)} className="pb-4 border-b border-brand-border/50">Collections</Link>
           <Link href="/stitch" onClick={() => setMobileMenuOpen(false)} className="pb-4 border-b border-brand-border/50">Stitch For You</Link>
-          <Link href="#" onClick={() => setMobileMenuOpen(false)} className="pb-4 border-b border-brand-border/50">Journal</Link>
-          <Link href="#" onClick={() => setMobileMenuOpen(false)} className="pb-4 border-b border-brand-border/50">About Us</Link>
+          <Link href="/journal" onClick={() => setMobileMenuOpen(false)} className="pb-4 border-b border-brand-border/50">Journal</Link>
+          <Link href="/about" onClick={() => setMobileMenuOpen(false)} className="pb-4 border-b border-brand-border/50">About Us</Link>
           
           <div className="flex gap-6 mt-8">
             <button className="flex flex-col items-center gap-2 opacity-70">

@@ -6,7 +6,6 @@ export default function Footer() {
     <footer className="bg-brand-warmWhite text-brand-charcoal pt-10 pb-6 mt-12 border-t border-brand-border">
       <div className="max-w-[1920px] mx-auto px-6 md:px-12">
         
-<<<<<<< HEAD
         {/* Instagram Feed Section */}
         <div className="pb-12 border-b border-brand-border mb-10">
           <div className="flex flex-col items-center justify-center mb-8">
@@ -19,8 +18,6 @@ export default function Footer() {
           </div>
         </div>
 
-=======
->>>>>>> f346ffc2abfc67dc4113d1a1ea988cdc679e136f
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 pb-10 border-b border-brand-border text-left">
           <div className="flex items-center gap-4">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" className="icon-stroke shrink-0">
@@ -28,11 +25,7 @@ export default function Footer() {
               <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
             </svg>
             <div>
-<<<<<<< HEAD
               <h5 className="text-[11px] font-semibold uppercase tracking-wider">Secure Payments</h5>
-=======
-              <h5 className="text-[11px] font-semibold uppercase tracking-wider">Commitment to Quality</h5>
->>>>>>> f346ffc2abfc67dc4113d1a1ea988cdc679e136f
               <p className="text-[10px] opacity-70 mt-1">100% safe & trusted</p>
             </div>
           </div>
@@ -48,17 +41,10 @@ export default function Footer() {
           </div>
           <div className="flex items-center gap-4">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" className="icon-stroke shrink-0">
-<<<<<<< HEAD
               <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
             </svg>
             <div>
               <h5 className="text-[11px] font-semibold uppercase tracking-wider">Customer Support</h5>
-=======
-              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-            </svg>
-            <div>
-              <h5 className="text-[11px] font-medium uppercase tracking-wider">Customer Support</h5>
->>>>>>> f346ffc2abfc67dc4113d1a1ea988cdc679e136f
               <p className="text-[10px] opacity-70 mt-1">+91 98765 43210</p>
             </div>
           </div>
@@ -77,58 +63,38 @@ export default function Footer() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-10 py-12">
           <div className="md:col-span-1">
-<<<<<<< HEAD
             <Link href="/" className="flex flex-col items-start mb-4">
               <h1 className="font-serif text-2xl tracking-[0.15em] uppercase">LABEL_234</h1>
               <span className="text-[8px] tracking-[0.3em] uppercase mt-1 opacity-80 pl-1">Panipat</span>
             </Link>
-=======
-            <Link href="/" className="font-serif text-2xl tracking-[0.15em] uppercase mb-4">LABEL_234</Link>
->>>>>>> f346ffc2abfc67dc4113d1a1ea988cdc679e136f
             <p className="text-[11px] opacity-70 leading-relaxed mb-6">Premium fabrics. Curated in Panipat. For the modern Indian woman.</p>
           </div>
 
           <div>
             <h6 className="text-[11px] tracking-widest font-semibold mb-5">SHOP</h6>
-<<<<<<< HEAD
             <ul className="flex flex-col gap-3 text-[11px] font-medium opacity-70">
-=======
-            <ul className="flex flex-col items-center gap-3 text-[11px] font-medium opacity-70">
->>>>>>> f346ffc2abfc67dc4113d1a1ea988cdc679e136f
               <li><Link href="/collections" className="hover:opacity-100 transition-opacity">All Fabrics</Link></li>
               <li><Link href="/collections" className="hover:opacity-100 transition-opacity">New Arrivals</Link></li>
               <li><Link href="/collections" className="hover:opacity-100 transition-opacity">Bestsellers</Link></li>
               <li><Link href="/stitch" className="hover:opacity-100 transition-opacity">Stitched for You</Link></li>
             </ul>
           </div>
-<<<<<<< HEAD
 
           <div>
             <h6 className="text-[11px] tracking-widest font-semibold mb-5">HELP</h6>
             <ul className="flex flex-col gap-3 text-[11px] font-medium opacity-70">
-=======
-          
-          <div>
-
-            <h6 className="text-[11px] tracking-widest font-semibold mb-5">HELP</h6>
-            <ul className="flex flex-col items-center gap-3 text-[11px] font-medium opacity-70">
->>>>>>> f346ffc2abfc67dc4113d1a1ea988cdc679e136f
-              <li><a href="#" className="hover:opacity-100 transition-opacity">FAQs</a></li>
-              <li><a href="#" className="hover:opacity-100 transition-opacity">Shipping & Delivery</a></li>
-              <li><a href="#" className="hover:opacity-100 transition-opacity">Returns & Refunds</a></li>
+              <li><Link href="/faqs" className="hover:opacity-100 transition-opacity">FAQs</Link></li>
+              <li><Link href="/shipping" className="hover:opacity-100 transition-opacity">Shipping & Delivery</Link></li>
+              <li><Link href="/returns" className="hover:opacity-100 transition-opacity">Returns & Refunds</Link></li>
             </ul>
           </div>
 
           <div>
             <h6 className="text-[11px] tracking-widest font-semibold mb-5">ABOUT</h6>
-<<<<<<< HEAD
             <ul className="flex flex-col gap-3 text-[11px] font-medium opacity-70">
-=======
-            <ul className="font-medium opacity-70 flex flex-col items-center gap-3 text-[11px]">
->>>>>>> f346ffc2abfc67dc4113d1a1ea988cdc679e136f
-              <li><a href="#" className="hover:opacity-100 transition-opacity">Our Story</a></li>
-              <li><a href="#" className="hover:opacity-100 transition-opacity">Visit Boutique</a></li>
-              <li><a href="#" className="hover:opacity-100 transition-opacity">Contact Us</a></li>
+              <li><Link href="/about" className="hover:opacity-100 transition-opacity">Our Story</Link></li>
+              <li><Link href="/about" className="hover:opacity-100 transition-opacity">Visit Boutique</Link></li>
+              <li><Link href="/contact" className="hover:opacity-100 transition-opacity">Contact Us</Link></li>
             </ul>
           </div>
 
@@ -138,11 +104,7 @@ export default function Footer() {
           </div>
         </div>
 
-<<<<<<< HEAD
         <div className="pt-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-[10px] opacity-60 border-t border-brand-border">
-=======
-        <div className="fex flex-col sm:flex-row justify-between items-center gap-4 text-[10px] opacity-60 border-t border-brand-border">
->>>>>>> f346ffc2abfc67dc4113d1a1ea988cdc679e136f
           <p>© 2024 Label_234. All rights reserved.</p>
           <p className="flex items-center gap-1 text-center">Made in Panipat, Loved Everywhere.</p>
         </div>
