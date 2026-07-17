@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Playfair Display", serif;
+  --font-sans: "Inter", sans-serif;
+  --color-brand-warmWhite: #FDFBF7;
+  --color-brand-ivory: #F9F6F0;
+  --color-brand-sand: #E6DFD5;
+  --color-brand-charcoal: #2C2C2C;
+  --color-brand-softBlack: #1A1A1A;
+  --color-brand-border: #E8E1D9;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-brand-warmWhite);
+    color: var(--color-brand-charcoal);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.icon-stroke {
+    stroke-width: 1.2px;
+}
+
+.arrow-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 2px;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 500;
+}
+
+.hover-scale {
+    transition: transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.group:hover .hover-scale {
+    transform: scale(1.05);
+}

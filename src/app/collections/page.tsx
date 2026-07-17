@@ -76,7 +76,11 @@ export default function CollectionsPage() {
                     onClick={() => setActiveFilter(cat)}
                     className={`hover:text-black transition-colors flex items-center gap-2 ${activeFilter === cat ? 'text-black font-semibold' : ''}`}
                   >
+<<<<<<< HEAD
+                    <span className={`w-3 h-3 rounded-full border ${activeFilter === cat ? 'border-black bg-brand-sand' : 'border-brand-charcoal/30'}`}></span>
+=======
                     <span className={bw-3 h-3 rounded-full border ${activeFilter === cat ? 'border-black bg-brand-sand' : 'border-brand-charcoal/30'}`}></span>
+>>>>>>> f346ffc2abfc67dc4113d1a1ea988cdc679e136f
                     {cat}
                   </button>
                 </li>

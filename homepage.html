@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LABEL_234 | Every Fabric Has One Owner</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            warmWhite: '#FDFBF7', /* Lighter background seen in image */
+                            ivory: '#F9F6F0',     /* Sections like Our Story */
+                            sand: '#E6DFD5',
+                            charcoal: '#2C2C2C',
+                            softBlack: '#1A1A1A',
+                            border: '#E8E1D9'     /* Delicate border color */
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Inter"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: theme('colors.brand.warmWhite');
+            color: theme('colors.brand.charcoal');
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Hide scrollbar for horizontal sliders but allow scrolling */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .icon-stroke {
+            stroke-width: 1.2px;
+        }
+
+        .arrow-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            border-bottom: 1px solid currentColor;
+            padding-bottom: 2px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 500;
+        }
+
+        .hover-scale {
+            transition: transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+        }
+
+        .group:hover .hover-scale {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body class="font-sans">
+
+    <div
+        class="bg-brand-softBlack text-white px-6 py-2.5 text-[11px] tracking-widest flex flex-col md:flex-row justify-between items-center z-50 relative">
+        <div class="flex items-center gap-2 opacity-80">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="icon-stroke">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            Panipat, India
+        </div>
+        <div class="text-center font-medium opacity-90 tracking-wider">One-of-a-kind fabrics. Once sold, never repeated.
+        </div>
+        <div class="flex items-center gap-2 opacity-80">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="icon-stroke">
+                <rect x="1" y="3" width="15" height="13"></rect>
+                <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+                <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                <circle cx="18.5" cy="18.5" r="2.5"></circle>
+            </svg>
+            Free Shipping on orders above ₹5,000
+        </div>
+    </div>
+
+    <header class="absolute top-[40px] left-0 w-full z-40 text-white py-6 px-12 bg-transparent">
+        <div class="max-w-[1920px] mx-auto flex items-center justify-between">
+            <!-- Left Nav -->
+            <nav class="hidden md:flex gap-10 text-[11px] tracking-[0.15em] font-medium items-center w-1/3">
+                <a href="#" class="border-b border-white pb-1">SHOP</a>
+                <a href="#" class="flex items-center gap-1 opacity-80 hover:opacity-100">COLLECTIONS <svg width="12"
+                        height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg></a>
+                <a href="#" class="opacity-80 hover:opacity-100">STITCH FOR YOU</a>
+            </nav>
+
+            <!-- Logo -->
+            <a href="#" class="flex flex-col items-center w-1/3 text-center">
+                <h1 class="font-serif text-3xl tracking-[0.15em]">LABEL_234</h1>
+                <span class="text-[9px] tracking-[0.3em] mt-1 opacity-80 uppercase">Panipat</span>
+            </a>
+
+            <!-- Right Nav -->
+            <nav class="hidden md:flex gap-8 text-[11px] tracking-[0.15em] font-medium items-center justify-end w-1/3">
+                <a href="#" class="opacity-80 hover:opacity-100">JOURNAL</a>
+                <a href="#" class="opacity-80 hover:opacity-100 mr-4">ABOUT US</a>
+                <div class="flex gap-5">
+                    <button class="opacity-80 hover:opacity-100"><svg width="18" height="18" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" class="icon-stroke">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg></button>
+                    <button class="opacity-80 hover:opacity-100"><svg width="18" height="18" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" class="icon-stroke">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg></button>
+                    <button class="opacity-80 hover:opacity-100"><svg width="18" height="18" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" class="icon-stroke">
+                            <path
+                                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                            </path>
+                        </svg></button>
+                    <button class="opacity-80 hover:opacity-100 relative">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            class="icon-stroke">
+                            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                            <line x1="3" y1="6" x2="21" y2="6"></line>
+                            <path d="M16 10a4 4 0 0 1-8 0"></path>
+                        </svg>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="relative h-[95vh] w-full flex items-center overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1620799140188-3b2a02fd9a77?q=80&w=2000&auto=format&fit=crop"
+            alt="Floral pattern fabric" class="absolute inset-0 w-full h-full object-cover">
+
+        <div class="absolute inset-0 bg-black/30"></div>
+
+        <div class="relative z-10 text-white px-12 md:px-24 max-w-4xl pt-20">
+            <span class="block text-[11px] tracking-[0.2em] uppercase mb-4 opacity-90 font-medium">One Fabric. One
+                Owner.</span>
+            <h2 class="font-serif text-6xl md:text-8xl leading-[1.1] mb-6 tracking-wide">Every Fabric<br>Has One Owner.
+            </h2>
+            <p class="font-sans text-lg md:text-xl opacity-90 mb-10 leading-relaxed font-light">Curated in
+                Panipat.<br>Never Restocked.</p>
+
+            <div class="flex flex-col sm:flex-row gap-8 items-start sm:items-center">
+                <a href="#"
+                    class="border border-white/50 px-8 py-3.5 text-xs tracking-[0.15em] uppercase hover:bg-white hover:text-black transition-colors duration-300 flex items-center gap-3">
+                    Explore Collection <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </a>
+                <button
+                    class="flex items-center gap-3 text-xs tracking-[0.15em] uppercase hover:opacity-70 transition-opacity">
+                    <div class="w-10 h-10 rounded-full border border-white flex items-center justify-center">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+                            <polygon points="8 5 19 12 8 19"></polygon>
+                        </svg>
+                    </div>
+                    Watch Our Story
+                </button>
+            </div>
+        </div>
+
+        <div
+            class="absolute right-12 top-1/2 -translate-y-1/2 flex flex-col items-center gap-6 text-white text-xs z-10 hidden md:flex font-sans">
+            <span class="opacity-100 tracking-widest">01</span>
+            <span class="w-[1px] h-10 bg-white/40"></span>
+            <span class="opacity-50 tracking-widest">02</span>
+            <span class="opacity-50 tracking-widest">03</span>
+            <div class="mt-16 flex flex-col items-center gap-3 opacity-70 text-[9px] tracking-[0.2em]">
+                <span class="-rotate-90 origin-center mb-6">SCROLL</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <polyline points="19 12 12 19 5 12"></polyline>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-brand-warmWhite border-b border-brand-border py-12 px-6">
+        <div
+            class="max-w-[1920px] mx-auto grid grid-cols-1 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-brand-border">
+            <div class="flex items-center justify-center gap-6 p-4">
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    class="icon-stroke opacity-80">
+                    <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                </svg>
+                <div class="text-left">
+                    <h3 class="font-semibold text-[13px] mb-1">No Repeats</h3>
+                    <p class="text-[12px] text-brand-charcoal/60 leading-snug">Once sold,<br>it's gone forever.</p>
+                </div>
+            </div>
+            <div class="flex items-center justify-center gap-6 p-4">
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    class="icon-stroke opacity-80">
+                    <circle cx="12" cy="8" r="7"></circle>
+                    <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+                </svg>
+                <div class="text-left">
+                    <h3 class="font-semibold text-[13px] mb-1">Premium Quality</h3>
+                    <p class="text-[12px] text-brand-charcoal/60 leading-snug">Handpicked fabrics,<br>quality you can
+                        feel.</p>
+                </div>
+            </div>
+            <div class="flex items-center justify-center gap-6 p-4">
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    class="icon-stroke opacity-80">
+                    <circle cx="6" cy="6" r="3"></circle>
+                    <circle cx="6" cy="18" r="3"></circle>
+                    <line x1="20" y1="4" x2="8.12" y2="15.88"></line>
+                    <line x1="14.47" y1="14.48" x2="20" y2="20"></line>
+                    <line x1="8.12" y1="8.12" x2="12" y2="12"></line>
+                </svg>
+                <div class="text-left">
+                    <h3 class="font-semibold text-[13px] mb-1">Custom Stitching</h3>
+                    <p class="text-[12px] text-brand-charcoal/60 leading-snug">Made to your<br>measurements.</p>
+                </div>
+            </div>
+            <div class="flex items-center justify-center gap-6 p-4">
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    class="icon-stroke opacity-80">
+                    <rect x="1" y="3" width="15" height="13"></rect>
+                    <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+                    <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                    <circle cx="18.5" cy="18.5" r="2.5"></circle>
+                </svg>
+                <div class="text-left">
+                    <h3 class="font-semibold text-[13px] mb-1">Worldwide Delivery</h3>
+                    <p class="text-[12px] text-brand-charcoal/60 leading-snug">Delivered to your<br>doorstep with care.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 px-12 max-w-[1920px] mx-auto border-b border-brand-border">
+        <div class="flex flex-col lg:flex-row gap-8 items-end lg:items-center">
+
+            <!-- Text Block -->
+            <div class="min-w-[280px] w-[280px] pr-8 pb-8">
+                <span
+                    class="text-[10px] tracking-[0.15em] uppercase font-semibold text-brand-charcoal block mb-4">EXPLORE
+                    COLLECTIONS</span>
+                <h2 class="font-serif text-4xl leading-[1.1] mb-6">Find Your<br>Perfect Fabric</h2>
+                <p class="text-brand-charcoal/70 text-[13px] leading-relaxed mb-8">Curated collections for every<br>day,
+                    every occasion, every you.</p>
+                <a href="#" class="arrow-link">
+                    VIEW ALL COLLECTIONS <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Horizontal Cards Scroll -->
+            <div class="flex-1 flex gap-4 overflow-x-auto hide-scrollbar pb-4">
+                <!-- Card 1 -->
+                <a href="#"
+                    class="group relative min-w-[300px] h-[380px] rounded-sm overflow-hidden block flex-shrink-0">
+                    <img src="https://images.unsplash.com/photo-1620799140188-3b2a02fd9a77?q=80&w=600&auto=format&fit=crop"
+                        alt="Daily Wear" class="absolute inset-0 w-full h-full object-cover hover-scale">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                    <div class="absolute bottom-6 left-6 text-white w-full pr-12">
+                        <h3 class="font-serif text-2xl mb-1">Daily Wear</h3>
+                        <p class="text-xs opacity-90 font-light mb-4">Effortless. Light. Beautiful.</p>
+                        <div
+                            class="w-8 h-8 rounded-full border border-white/50 flex items-center justify-center text-white">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </div>
+                    </div>
+                </a>
+                <!-- Card 2 -->
+                <a href="#"
+                    class="group relative min-w-[300px] h-[380px] rounded-sm overflow-hidden block flex-shrink-0">
+                    <img src="https://images.unsplash.com/photo-1605007530663-99933ee1375d?q=80&w=600&auto=format&fit=crop"
+                        alt="Festive" class="absolute inset-0 w-full h-full object-cover hover-scale">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                    <div class="absolute bottom-6 left-6 text-white w-full pr-12">
+                        <h3 class="font-serif text-2xl mb-1">Festive & Occasion</h3>
+                        <p class="text-xs opacity-90 font-light mb-4">Make every moment yours.</p>
+                        <div
+                            class="w-8 h-8 rounded-full border border-white/50 flex items-center justify-center text-white">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </div>
+                    </div>
+                </a>
+                <!-- Card 3 -->
+                <a href="#"
+                    class="group relative min-w-[300px] h-[380px] rounded-sm overflow-hidden block flex-shrink-0">
+                    <img src="https://images.unsplash.com/photo-1596468759714-d843ec29a4de?q=80&w=600&auto=format&fit=crop"
+                        alt="Luxury Edit" class="absolute inset-0 w-full h-full object-cover hover-scale">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                    <div class="absolute bottom-6 left-6 text-white w-full pr-12">
+                        <h3 class="font-serif text-2xl mb-1">Luxury Edit</h3>
+                        <p class="text-xs opacity-90 font-light mb-4">Timeless. Exclusive. You.</p>
+                        <div
+                            class="w-8 h-8 rounded-full border border-white/50 flex items-center justify-center text-white">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </div>
+                    </div>
+                </a>
+                <!-- Card 4 -->
+                <a href="#"
+                    class="group relative min-w-[300px] h-[380px] rounded-sm overflow-hidden block flex-shrink-0">
+                    <img src="https://images.unsplash.com/photo-1584916201218-f4242ceb4809?q=80&w=600&auto=format&fit=crop"
+                        alt="New Arrivals" class="absolute inset-0 w-full h-full object-cover hover-scale">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                    <div class="absolute bottom-6 left-6 text-white w-full pr-12">
+                        <h3 class="font-serif text-2xl mb-1">New Arrivals</h3>
+                        <p class="text-xs opacity-90 font-light mb-4">Fresh. Unique. Handpicked.</p>
+                        <div
+                            class="w-8 h-8 rounded-full border border-white/50 flex items-center justify-center text-white">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 px-12 max-w-[1920px] mx-auto bg-brand-warmWhite">
+        <div class="flex justify-between items-end mb-8">
+            <h3 class="text-[11px] tracking-[0.15em] uppercase font-semibold text-brand-charcoal">OUR BEST SELLERS</h3>
+            <div class="flex items-center gap-4">
+                <span class="text-[11px] tracking-[0.1em] uppercase font-semibold">VIEW ALL</span>
+                <div class="flex gap-2">
+                    <button
+                        class="w-8 h-8 rounded-full border border-brand-border flex items-center justify-center hover:bg-brand-sand transition-colors">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <line x1="19" y1="12" x2="5" y2="12"></line>
+                            <polyline points="12 19 5 12 12 5"></polyline>
+                        </svg>
+                    </button>
+                    <button
+                        class="w-8 h-8 rounded-full border border-brand-border flex items-center justify-center hover:bg-brand-sand transition-colors">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex gap-6 overflow-x-auto hide-scrollbar pb-8">
+            <!-- Products 1 to 6 identical structure -->
+            <div class="min-w-[260px] cursor-pointer group">
+                <div class="relative h-[260px] bg-brand-sand mb-4 overflow-hidden rounded-sm">
+                    <img src="https://images.unsplash.com/photo-1620799139834-6b8f844fbe61?q=80&w=400&auto=format&fit=crop"
+                        class="w-full h-full object-cover hover-scale" alt="Floral Chikankari Cotton">
+                    <button class="absolute top-3 right-3 text-white opacity-80 hover:opacity-100">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path
+                                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                            </path>
+                        </svg>
+                    </button>
+                </div>
+                <h4 class="font-semibold text-[13px] mb-1">Floral Chikankari Cotton</h4>
+                <p class="text-[12px] text-brand-charcoal/70 mb-3">₹ 1,850 / mtr</p>
+                <div class="flex gap-2">
+                    <span class="w-3.5 h-3.5 rounded-full bg-[#E5B5A1] border border-black/10"></span>
+                    <span class="w-3.5 h-3.5 rounded-full bg-[#D4E0D1] border border-black/10"></span>
+                    <span class="w-3.5 h-3.5 rounded-full bg-[#E2D2B8] border border-black/10"></span>
+                    <span class="w-3.5 h-3.5 rounded-full bg-[#8E9B90] border border-black/10"></span>
+                </div>
+            </div>
+
+            <div class="min-w-[260px] cursor-pointer group">
+                <div class="relative h-[260px] bg-brand-sand mb-4 overflow-hidden rounded-sm">
+                    <img src="https://images.unsplash.com/photo-1579738202506-6252d4c0627e?q=80&w=400&auto=format&fit=crop"
+                        class="w-full h-full object-cover hover-scale" alt="Pastel Georgette">
+                    <button class="absolute top-3 right-3 text-white opacity-80 hover:opacity-100">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path
+                                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                            </path>
+                        </svg>
+                    </button>
+                </div>
+                <h4 class="font-semibold text-[13px] mb-1">Pastel Georgette</h4>
+                <p class="text-[12px] text-brand-charcoal/70 mb-3">₹ 2,450 / mtr</p>
+                <div class="flex gap-2">
+                    <span class="w-3.5 h-3.5 rounded-full bg-[#EAD4D0] border border-black/10"></span>
+                    <span class="w-3.5 h-3.5 rounded-full bg-[#A25E54] border border-black/10"></span>
+                    <span class="w-3.5 h-3.5 rounded-full bg-[#627362] border border-black/10"></span>
+                    <span class="w-3.5 h-3.5 rounded-full bg-[#2C2C2C] border border-black/10"></span>
+                </div>
+            </div>
+
+            <div class="min-w-[260px] cursor-pointer group">
+                <div class="relative h-[260px] bg-brand-sand mb-4 overflow-hidden rounded-sm">
+                    <img src="https://images.unsplash.com/photo-1605007530663-99933ee1375d?q=80&w=400&auto=format&fit=crop"
+                        class="w-full h-full object-cover hover-scale" alt="Ivory Linen">
+                    <button class="absolute top-3 right-3 text-white opacity-80 hover:opacity-100">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path
+                                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                            </path>
+                        </svg>
+                    </button>
+                </div>
+                <h4 class="font-semibold text-[13px] mb-1">Ivory Linen</h4>
+                <p class="text-[12px] text-brand-charcoal/70 mb-3">₹ 1,950 / mtr</p>
+                <div class="flex gap-2">
+                    <span class="w-3.5 h-3.5 rounded-full bg-[#EAE0CD] border border-black/10"></span>
+                    <span class="w-3.5 h-3.5 rounded-full bg-[#B2987E] border border-black/10"></span>
+                    <span class="w-3.5 h-3.5 rounded-full bg-[#526075] border border-black/10"></span>
+                    <span class="w-3.5 h-3.5 rounded-full bg-[#913D45] border border-black/10"></span>
+                </div>
+            </div>
+
+            <div class="min-w-[260px] cursor-pointer group">
+                <div class="relative h-[260px] bg-brand-sand mb-4 overflow-hidden rounded-sm">
+                    <img src="https://images.unsplash.com/photo-1596468759714-d843ec29a4de?q=80&w=400&auto=format&fit=crop"
+                        class="w-full h-full object-cover hover-scale" alt="Peach Organza">
+                    <button class="absolute top-3 right-3 text-white opacity-80 hover:opacity-100">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path
+                                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                            </path>
+                        </svg>
+                    </button>
+                </div>
+                <h4 class="font-semibold text-[13px] mb-1">Peach Organza</h4>
+                <p class="text-[12px] text-brand-charcoal/70 mb-3">₹ 2,150 / mtr</p>
+                <div class="flex gap-2">
+                    <span class="w-3.5 h-3.5 rounded-full bg-[#EAC9B5] border border-black/10"></span>
+                    <span class="w-3.5 h-3.5 rounded-full bg-[#62473D] border border-black/10"></span>
+                    <span class="w-3.5 h-3.5 rounded-full bg-[#A23D3D] border border-black/10"></span>
+                    <span class="w-3.5 h-3.5 rounded-full bg-[#2B473A] border border-black/10"></span>
+                </div>
+            </div>
+
+            <div class="min-w-[260px] cursor-pointer group">
+                <div class="relative h-[260px] bg-brand-sand mb-4 overflow-hidden rounded-sm">
+                    <img src="https://images.unsplash.com/photo-1584916201218-f4242ceb4809?q=80&w=400&auto=format&fit=crop"
+                        class="w-full h-full object-cover hover-scale" alt="Lavender Silk">
+                    <button class="absolute top-3 right-3 text-white opacity-80 hover:opacity-100">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path
+                                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                            </path>
+                        </svg>
+                    </button>
+                </div>
+                <h4 class="font-semibold text-[13px] mb-1">Lavender Silk</h4>
+                <p class="text-[12px] text-brand-charcoal/70 mb-3">₹ 3,250 / mtr</p>
+                <div class="flex gap-2">
+                    <span class="w-3.5 h-3.5 rounded-full bg-[#C1A8C8] border border-black/10"></span>
+                    <span class="w-3.5 h-3.5 rounded-full bg-[#4A3B56] border border-black/10"></span>
+                    <span class="w-3.5 h-3.5 rounded-full bg-[#D6D0C4] border border-black/10"></span>
+                    <span class="w-3.5 h-3.5 rounded-full bg-[#3B4D3F] border border-black/10"></span>
+                </div>
+            </div>
+
+            <div class="min-w-[260px] cursor-pointer group">
+                <div class="relative h-[260px] bg-brand-sand mb-4 overflow-hidden rounded-sm">
+                    <img src="https://images.unsplash.com/photo-1596468759714-d843ec29a4de?q=80&w=400&auto=format&fit=crop"
+                        class="w-full h-full object-cover hover-scale" alt="Bottle Green Chiffon">
+                    <button class="absolute top-3 right-3 text-white opacity-80 hover:opacity-100">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path
+                                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                            </path>
+                        </svg>
+                    </button>
+                </div>
+                <h4 class="font-semibold text-[13px] mb-1">Bottle Green Chiffon</h4>
+                <p class="text-[12px] text-brand-charcoal/70 mb-3">₹ 2,250 / mtr</p>
+                <div class="flex gap-2">
+                    <span class="w-3.5 h-3.5 rounded-full bg-[#274535] border border-black/10"></span>
+                    <span class="w-3.5 h-3.5 rounded-full bg-[#B29D55] border border-black/10"></span>
+                    <span class="w-3.5 h-3.5 rounded-full bg-[#1A1A1A] border border-black/10"></span>
+                    <span class="w-3.5 h-3.5 rounded-full bg-[#D2C5B5] border border-black/10"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="flex flex-col lg:flex-row max-w-[1920px] mx-auto border-y border-brand-border">
+        <!-- Left Image (approx 35%) -->
+        <div class="lg:w-[35%] h-[40vh] lg:h-auto relative">
+            <img src="https://images.unsplash.com/photo-1612422656368-232128c7042a?q=80&w=1000&auto=format&fit=crop"
+                class="absolute inset-0 w-full h-full object-cover grayscale-[20%]"
+                alt="Artisan hands stitching fabric">
+        </div>
+
+        <!-- Right Content Box (approx 65%) -->
+        <div class="lg:w-[65%] bg-brand-warmWhite p-16 lg:p-24 flex flex-col md:flex-row gap-16 items-center">
+
+            <!-- Text & CTA -->
+            <div class="md:w-1/2">
+                <span class="text-[10px] tracking-[0.2em] uppercase font-semibold text-brand-charcoal block mb-4">STITCH
+                    FOR YOU</span>
+                <h2 class="font-serif text-4xl lg:text-5xl leading-[1.1] mb-6">From Fabric to<br>Your Perfect Fit</h2>
+                <p class="text-brand-charcoal/70 text-[13px] mb-10 leading-relaxed max-w-sm">Choose your fabric, share
+                    your measurements, and we'll take care of the rest.</p>
+                <button
+                    class="bg-brand-softBlack text-white px-8 py-4 text-xs tracking-widest uppercase hover:bg-black transition-colors">
+                    START YOUR CUSTOM ORDER
+                </button>
+            </div>
+
+            <!-- Steps List -->
+            <div class="md:w-1/2 flex flex-col gap-10">
+                <div class="flex items-center gap-6">
+                    <div
+                        class="w-14 h-14 rounded-full border border-brand-border flex items-center justify-center shrink-0">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            class="icon-stroke">
+                            <circle cx="6" cy="6" r="3"></circle>
+                            <circle cx="6" cy="18" r="3"></circle>
+                            <line x1="20" y1="4" x2="8.12" y2="15.88"></line>
+                            <line x1="14.47" y1="14.48" x2="20" y2="20"></line>
+                            <line x1="8.12" y1="8.12" x2="12" y2="12"></line>
+                        </svg>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-sm mb-1">1. Choose Your Fabric</h4>
+                        <p class="text-xs text-brand-charcoal/60">Pick from our exclusive collection</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-6">
+                    <div
+                        class="w-14 h-14 rounded-full border border-brand-border flex items-center justify-center shrink-0">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            class="icon-stroke">
+                            <path d="M12 20h9"></path>
+                            <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-sm mb-1">2. Share Measurements</h4>
+                        <p class="text-xs text-brand-charcoal/60">We ensure the perfect fit</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-6">
+                    <div
+                        class="w-14 h-14 rounded-full border border-brand-border flex items-center justify-center shrink-0">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            class="icon-stroke">
+                            <rect x="1" y="3" width="15" height="13"></rect>
+                            <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+                            <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                            <circle cx="18.5" cy="18.5" r="2.5"></circle>
+                        </svg>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-sm mb-1">3. We Stitch & Deliver</h4>
+                        <p class="text-xs text-brand-charcoal/60">Delivered to your doorstep</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="bg-brand-ivory border-b border-brand-border">
+        <div class="max-w-[1920px] mx-auto flex flex-col lg:flex-row">
+
+            <!-- Left Text Box -->
+            <div class="lg:w-[30%] p-16 lg:p-20 flex flex-col justify-center">
+                <span class="text-[10px] tracking-[0.2em] uppercase font-semibold text-brand-charcoal block mb-4">OUR
+                    STORY</span>
+                <h2 class="font-serif text-4xl leading-[1.1] mb-6">Crafted with Care.<br>Curated for You.</h2>
+                <p class="text-brand-charcoal/70 text-[13px] leading-relaxed mb-8">At Label_234, every fabric is
+                    handpicked in Panipat with a simple belief—every woman deserves a fabric as unique as she is. We
+                    handpick each fabric in limited quantities, so what you choose is truly yours.</p>
+                <a href="#" class="arrow-link w-max">
+                    KNOW MORE ABOUT US <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Middle Stats Row -->
+            <div
+                class="lg:w-[45%] flex items-center justify-around p-12 border-y lg:border-y-0 lg:border-x border-brand-border">
+                <div class="flex flex-col items-center text-center gap-3">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        class="icon-stroke opacity-60">
+                        <path
+                            d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z">
+                        </path>
+                    </svg>
+                    <span class="font-serif text-4xl">1000+</span>
+                    <span class="text-[11px] font-medium text-brand-charcoal/60">Unique Fabrics</span>
+                </div>
+                <div class="flex flex-col items-center text-center gap-3">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        class="icon-stroke opacity-60">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                    <span class="font-serif text-4xl">5000+</span>
+                    <span class="text-[11px] font-medium text-brand-charcoal/60">Happy Customers</span>
+                </div>
+                <div class="flex flex-col items-center text-center gap-3">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        class="icon-stroke opacity-60">
+                        <circle cx="6" cy="6" r="3"></circle>
+                        <circle cx="6" cy="18" r="3"></circle>
+                        <line x1="20" y1="4" x2="8.12" y2="15.88"></line>
+                        <line x1="14.47" y1="14.48" x2="20" y2="20"></line>
+                        <line x1="8.12" y1="8.12" x2="12" y2="12"></line>
+                    </svg>
+                    <span class="font-serif text-4xl">5+</span>
+                    <span class="text-[11px] font-medium text-brand-charcoal/60">Years of Trust</span>
+                </div>
+                <div class="flex flex-col items-center text-center gap-3">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        class="icon-stroke opacity-60">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                    <span class="font-serif text-4xl">1</span>
+                    <span class="text-[11px] font-medium text-brand-charcoal/60">Boutique in Panipat</span>
+                </div>
+            </div>
+
+            <!-- Right Image Box -->
+            <div class="lg:w-[25%] h-[40vh] lg:h-auto relative">
+                <img src="https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?q=80&w=800&auto=format&fit=crop"
+                    class="absolute inset-0 w-full h-full object-cover" alt="Boutique Interior">
+            </div>
+
+        </div>
+    </section>
+
+    <section class="py-24 bg-brand-warmWhite border-b border-brand-border text-center relative">
+        <span class="text-[10px] tracking-[0.2em] uppercase font-semibold text-brand-charcoal block mb-3">LOVED BY REAL
+            WOMEN</span>
+        <h2 class="font-serif text-4xl mb-14">Real Stories. Real Happiness.</h2>
+
+        <a href="#" class="absolute right-12 top-24 arrow-link hidden md:flex">
+            VIEW ALL REVIEWS <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+        </a>
+
+        <div class="max-w-[1920px] mx-auto px-12 relative flex items-center">
+
+            <button
+                class="w-10 h-10 bg-transparent rounded-full border border-brand-border flex shrink-0 items-center justify-center hover:bg-brand-sand transition-colors mr-6">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+            </button>
+
+            <div class="flex gap-6 overflow-x-auto hide-scrollbar snap-x w-full">
+
+                <!-- Review Card 1 -->
+                <div class="min-w-[480px] bg-brand-ivory rounded-sm p-5 flex items-stretch gap-6 text-left snap-center">
+                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=250&auto=format&fit=crop"
+                        class="w-32 object-cover shrink-0" alt="Customer">
+                    <div class="flex flex-col justify-center">
+                        <span class="text-3xl font-serif text-brand-charcoal/30 leading-none block">"</span>
+                        <p class="text-[13px] font-medium leading-relaxed mb-4">The fabric is beyond beautiful. You can
+                            feel the quality the moment you touch it. Truly one-of-a-kind!</p>
+                        <p class="text-[11px] font-semibold text-brand-charcoal mb-1">— Neha S.</p>
+                        <div class="flex text-brand-charcoal text-[10px]">★★★★★</div>
+                    </div>
+                </div>
+
+                <!-- Review Card 2 -->
+                <div class="min-w-[480px] bg-brand-ivory rounded-sm p-5 flex items-stretch gap-6 text-left snap-center">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=250&auto=format&fit=crop"
+                        class="w-32 object-cover shrink-0" alt="Customer">
+                    <div class="flex flex-col justify-center">
+                        <span class="text-3xl font-serif text-brand-charcoal/30 leading-none block">"</span>
+                        <p class="text-[13px] font-medium leading-relaxed mb-4">Got my outfit stitched and it fits like
+                            a dream. The team is so helpful and the service is amazing.</p>
+                        <p class="text-[11px] font-semibold text-brand-charcoal mb-1">— Priyanka M.</p>
+                        <div class="flex text-brand-charcoal text-[10px]">★★★★★</div>
+                    </div>
+                </div>
+
+                <!-- Review Card 3 -->
+                <div class="min-w-[480px] bg-brand-ivory rounded-sm p-5 flex items-stretch gap-6 text-left snap-center">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=250&auto=format&fit=crop"
+                        class="w-32 object-cover shrink-0" alt="Customer">
+                    <div class="flex flex-col justify-center">
+                        <span class="text-3xl font-serif text-brand-charcoal/30 leading-none block">"</span>
+                        <p class="text-[13px] font-medium leading-relaxed mb-4">Finally a brand that offers exclusive
+                            fabrics and personalized stitching. Absolutely in love!</p>
+                        <p class="text-[11px] font-semibold text-brand-charcoal mb-1">— Anjali K.</p>
+                        <div class="flex text-brand-charcoal text-[10px]">★★★★★</div>
+                    </div>
+                </div>
+
+            </div>
+
+            <button
+                class="w-10 h-10 bg-transparent rounded-full border border-brand-border flex shrink-0 items-center justify-center hover:bg-brand-sand transition-colors ml-6">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+            </button>
+        </div>
+    </section>
+
+    <section class="py-16 bg-brand-warmWhite border-b border-brand-border">
+        <div class="max-w-[1920px] mx-auto px-12">
+            <div class="flex justify-between items-center mb-8">
+                <h3 class="text-[11px] tracking-[0.15em] uppercase font-semibold text-brand-charcoal">FROM OUR INSTAGRAM
+                </h3>
+                <h2 class="font-serif text-2xl font-medium">@label_234</h2>
+                <a href="#" class="arrow-link hidden md:flex">FOLLOW US <svg width="14" height="14" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg></a>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-6 gap-3">
+                <a href="#" class="block aspect-[4/3] rounded-sm overflow-hidden group">
+                    <img src="https://images.unsplash.com/photo-1583391733958-65e28228d411?q=80&w=400&auto=format&fit=crop"
+                        class="w-full h-full object-cover hover-scale" alt="Instagram Post">
+                </a>
+                <a href="#" class="block aspect-[4/3] rounded-sm overflow-hidden group">
+                    <img src="https://images.unsplash.com/photo-1596468759714-d843ec29a4de?q=80&w=400&auto=format&fit=crop"
+                        class="w-full h-full object-cover hover-scale" alt="Instagram Post">
+                </a>
+                <a href="#" class="block aspect-[4/3] rounded-sm overflow-hidden group">
+                    <img src="https://images.unsplash.com/photo-1584916201218-f4242ceb4809?q=80&w=400&auto=format&fit=crop"
+                        class="w-full h-full object-cover hover-scale" alt="Instagram Post">
+                </a>
+                <a href="#" class="block aspect-[4/3] rounded-sm overflow-hidden group hidden md:block">
+                    <img src="https://images.unsplash.com/photo-1605007530663-99933ee1375d?q=80&w=400&auto=format&fit=crop"
+                        class="w-full h-full object-cover hover-scale" alt="Instagram Post">
+                </a>
+                <a href="#" class="block aspect-[4/3] rounded-sm overflow-hidden group hidden md:block">
+                    <img src="https://images.unsplash.com/photo-1620799140188-3b2a02fd9a77?q=80&w=400&auto=format&fit=crop"
+                        class="w-full h-full object-cover hover-scale" alt="Instagram Post">
+                </a>
+
+                <!-- Gray CTA Block -->
+                <a href="#"
+                    class="block aspect-[4/3] rounded-sm bg-[#EBE7DF] flex flex-col items-center justify-center text-center p-4 hover:bg-brand-sand transition-colors group">
+                    <span class="text-[12px] font-medium mb-3">View More<br>on Instagram</span>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        class="icon-stroke opacity-70 group-hover:opacity-100 transition-opacity">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-brand-warmWhite text-brand-charcoal pt-10 pb-6">
+        <div class="max-w-[1920px] mx-auto px-12">
+
+            <!-- Top Badges -->
+            <div
+                class="grid grid-cols-2 md:grid-cols-4 gap-6 pb-10 border-b border-brand-border text-center md:text-left">
+                <div class="flex items-center justify-center md:justify-start gap-4">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        class="icon-stroke">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                    </svg>
+                    <div>
+                        <h5 class="text-[11px] font-semibold uppercase tracking-wider">Secure Payments</h5>
+                        <p class="text-[10px] opacity-70 mt-1">100% safe & trusted</p>
+                    </div>
+                </div>
+                <div class="flex items-center justify-center md:justify-start gap-4">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        class="icon-stroke">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                    <div>
+                        <h5 class="text-[11px] font-semibold uppercase tracking-wider">Easy Returns</h5>
+                        <p class="text-[10px] opacity-70 mt-1">Hassle-free returns</p>
+                    </div>
+                </div>
+                <div class="flex items-center justify-center md:justify-start gap-4">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        class="icon-stroke">
+                        <path
+                            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                        </path>
+                    </svg>
+                    <div>
+                        <h5 class="text-[11px] font-semibold uppercase tracking-wider">Customer Support</h5>
+                        <p class="text-[10px] opacity-70 mt-1">+91 98765 43210</p>
+                    </div>
+                </div>
+                <div class="flex items-center justify-center md:justify-start gap-4">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        class="icon-stroke">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="2" y1="12" x2="22" y2="12"></line>
+                        <path
+                            d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                        </path>
+                    </svg>
+                    <div>
+                        <h5 class="text-[11px] font-semibold uppercase tracking-wider">Worldwide Shipping</h5>
+                        <p class="text-[10px] opacity-70 mt-1">Pan India & International</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Columns -->
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-10 py-12">
+
+                <div class="md:col-span-1">
+                    <a href="#" class="flex flex-col items-start mb-4">
+                        <h1 class="font-serif text-2xl tracking-[0.15em] uppercase">LABEL_234</h1>
+                        <span class="text-[8px] tracking-[0.3em] uppercase mt-1 opacity-80 pl-1">Panipat</span>
+                    </a>
+                    <p class="text-[11px] opacity-70 leading-relaxed mb-6">Premium fabrics. Curated in Panipat. For the
+                        modern Indian woman.</p>
+                    <div class="flex gap-3">
+                        <a href="#"
+                            class="w-8 h-8 rounded-full border border-brand-charcoal/20 flex items-center justify-center hover:bg-brand-charcoal hover:text-white transition-colors"><svg
+                                width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg></a>
+                        <a href="#"
+                            class="w-8 h-8 rounded-full border border-brand-charcoal/20 flex items-center justify-center hover:bg-brand-charcoal hover:text-white transition-colors"><svg
+                                width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                            </svg></a>
+                        <a href="#"
+                            class="w-8 h-8 rounded-full border border-brand-charcoal/20 flex items-center justify-center hover:bg-brand-charcoal hover:text-white transition-colors"><svg
+                                width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path
+                                    d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z">
+                                </path>
+                            </svg></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h6 class="text-[11px] tracking-widest font-semibold mb-5">SHOP</h6>
+                    <ul class="flex flex-col gap-3 text-[11px] font-medium opacity-70">
+                        <li><a href="#" class="hover:opacity-100 transition-opacity">All Fabrics</a></li>
+                        <li><a href="#" class="hover:opacity-100 transition-opacity">New Arrivals</a></li>
+                        <li><a href="#" class="hover:opacity-100 transition-opacity">Bestsellers</a></li>
+                        <li><a href="#" class="hover:opacity-100 transition-opacity">Stitched for You</a></li>
+                        <li><a href="#" class="hover:opacity-100 transition-opacity">Gift Cards</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h6 class="text-[11px] tracking-widest font-semibold mb-5">HELP</h6>
+                    <ul class="flex flex-col gap-3 text-[11px] font-medium opacity-70">
+                        <li><a href="#" class="hover:opacity-100 transition-opacity">FAQs</a></li>
+                        <li><a href="#" class="hover:opacity-100 transition-opacity">Shipping & Delivery</a></li>
+                        <li><a href="#" class="hover:opacity-100 transition-opacity">Returns & Refunds</a></li>
+                        <li><a href="#" class="hover:opacity-100 transition-opacity">Size Guide</a></li>
+                        <li><a href="#" class="hover:opacity-100 transition-opacity">Care Instructions</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h6 class="text-[11px] tracking-widest font-semibold mb-5">ABOUT</h6>
+                    <ul class="flex flex-col gap-3 text-[11px] font-medium opacity-70">
+                        <li><a href="#" class="hover:opacity-100 transition-opacity">Our Story</a></li>
+                        <li><a href="#" class="hover:opacity-100 transition-opacity">Visit Boutique</a></li>
+                        <li><a href="#" class="hover:opacity-100 transition-opacity">Journal</a></li>
+                        <li><a href="#" class="hover:opacity-100 transition-opacity">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:opacity-100 transition-opacity">Terms & Conditions</a></li>
+                        <li><a href="#" class="hover:opacity-100 transition-opacity">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h6 class="text-[11px] tracking-widest font-semibold mb-5">VISIT OUR BOUTIQUE</h6>
+                    <p class="text-[11px] opacity-70 leading-relaxed mb-4">Label_234<br>Model Town, Panipat,<br>Haryana
+                        - 132103</p>
+                    <a href="#" class="arrow-link text-[10px]">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg> GET DIRECTIONS
+                    </a>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="pt-6 flex justify-between items-center text-[10px] opacity-60 border-t border-brand-border">
+                <p>© 2024 Label_234. All rights reserved.</p>
+                <p class="flex items-center gap-1">Made in Panipat, Loved Everywhere. <svg width="10" height="10"
+                        viewBox="0 0 24 24" fill="currentColor" stroke="none">
+                        <path
+                            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                        </path>
+                    </svg></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const header = document.getElementById('main-header');
+
+            // Dynamic Sticky Header
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.remove('bg-transparent', 'text-white', 'py-6');
+                    header.classList.add('bg-brand-warmWhite', 'text-brand-charcoal', 'shadow-sm', 'py-4', 'border-b', 'border-brand-border');
+                    header.style.top = '0';
+                } else {
+                    header.classList.add('bg-transparent', 'text-white', 'py-6');
+                    header.classList.remove('bg-brand-warmWhite', 'text-brand-charcoal', 'shadow-sm', 'py-4', 'border-b', 'border-brand-border');
+                    header.style.top = '40px';
+                }
+            });
+            window.addEventListener('resize', () => window.dispatchEvent(new Event('scroll')));
+        });
+    </script>
+</body>
+
+</html>
