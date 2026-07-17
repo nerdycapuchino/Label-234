@@ -3,7 +3,7 @@
 # To be executed on the production server (root@72.61.255.54)
 
 APP_DIR="/var/www/234label"
-PORT=3005
+PORT=3000
 APP_NAME="234label-web"
 DOMAIN="234label.com"
 
@@ -35,7 +35,8 @@ npm run build
 
 # 4. Restart PM2
 echo "Restarting application via PM2 on port $PORT..."
-pm2 delete $APP_NAME 2>/dev/null || true
+# Kill all pm2 processes to guarantee the old ArtiQ server dies
+pm2 delete all 2>/dev/null || true
 PORT=$PORT pm2 start npm --name "$APP_NAME" -- start
 pm2 save
 
