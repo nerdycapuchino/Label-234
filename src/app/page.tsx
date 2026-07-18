@@ -69,7 +69,7 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative h-[95vh] w-full flex items-center overflow-hidden bg-black">
         <img src="https://images.unsplash.com/photo-1620799140188-3b2a02fd9a77?q=80&w=2000&auto=format&fit=crop"
-          alt="Floral pattern fabric" className="hero-bg absolute inset-0 w-full h-[120%] object-cover -top-[10%]" />
+          alt="Floral pattern fabric" className="hero-bg absolute inset-0 w-full object-cover" style={{ height: "120%", top: "-10%" }} />
         
         <div className="absolute inset-0 bg-black/30"></div>
 
@@ -212,12 +212,12 @@ export default function Home() {
 
       {/* Stitch For You */}
       <section className="flex flex-col lg:flex-row max-w-[1920px] mx-auto border-y border-brand-border">
-        <div className="lg:w-[35%] h-[40vh] lg:h-auto relative">
+        <div className="lg:w-1/3 h-[40vh] lg:h-auto relative">
           <img src="https://images.unsplash.com/photo-1612422656368-232128c7042a?q=80&w=1000&auto=format&fit=crop"
-            className="absolute inset-0 w-full h-full object-cover grayscale-[20%]" alt="Artisan hands stitching fabric" />
+            className="absolute inset-0 w-full h-full object-cover grayscale" alt="Artisan hands stitching fabric" />
         </div>
 
-        <div className="lg:w-[65%] bg-brand-warmWhite p-16 lg:p-24 flex flex-col md:flex-row gap-16 items-center">
+        <div className="lg:w-2/3 bg-brand-warmWhite p-16 lg:p-24 flex flex-col md:flex-row gap-16 items-center">
           <div className="md:w-1/2">
             <span className="text-[10px] tracking-[0.2em] uppercase font-semibold text-brand-charcoal block mb-4">STITCH FOR YOU</span>
             <h2 className="font-serif text-4xl lg:text-5xl leading-[1.1] mb-6">From Fabric to<br/>Your Perfect Fit</h2>
@@ -262,7 +262,7 @@ export default function Home() {
       {/* Our Story */}
       <section className="bg-brand-ivory border-b border-brand-border">
         <div className="max-w-[1920px] mx-auto flex flex-col lg:flex-row">
-          <div className="lg:w-[30%] p-16 lg:p-20 flex flex-col justify-center">
+          <div className="lg:w-1/3 p-16 lg:p-20 flex flex-col justify-center">
             <span className="text-[10px] tracking-[0.2em] uppercase font-semibold text-brand-charcoal block mb-4">OUR STORY</span>
             <h2 className="font-serif text-4xl leading-[1.1] mb-6">Crafted with Care.<br/>Curated for You.</h2>
             <p className="text-brand-charcoal/70 text-[13px] leading-relaxed mb-8">At Label_234, every fabric is handpicked in Panipat with a simple belief—every woman deserves a fabric as unique as she is. We handpick each fabric in limited quantities, so what you choose is truly yours.</p>
@@ -275,7 +275,7 @@ export default function Home() {
             </a>
           </div>
 
-          <div className="lg:w-[45%] flex items-center justify-around p-12 border-y lg:border-y-0 lg:border-x border-brand-border">
+          <div className="lg:w-5/12 flex items-center justify-around p-12 border-y lg:border-y-0 lg:border-x border-brand-border">
             <div className="flex flex-col items-center text-center gap-3">
               <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" className="icon-stroke opacity-60">
                 <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
@@ -312,7 +312,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="lg:w-[25%] h-[40vh] lg:h-auto relative">
+          <div className="lg:w-1/4 h-[40vh] lg:h-auto relative">
             <img src="https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?q=80&w=800&auto=format&fit=crop" className="absolute inset-0 w-full h-full object-cover" alt="Boutique Interior" />
           </div>
         </div>

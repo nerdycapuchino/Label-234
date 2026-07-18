@@ -9,7 +9,7 @@ export default function CheckoutPage() {
       <div className="max-w-[1920px] mx-auto pt-32 px-6 md:px-12 pb-24">
         <h1 className="font-serif text-4xl mb-8 border-b border-brand-border pb-6">Checkout</h1>
         
-        <div className="grid grid-cols-1 lg:grid-cols-[60%_40%] gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-12">
           {/* Left Column: Forms */}
           <div className="flex flex-col gap-10">
             

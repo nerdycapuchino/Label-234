@@ -7,7 +7,7 @@ import { Search, User, Heart, ShoppingBag, ChevronDown, Menu, X } from 'lucide-r
 import { useCartStore } from '@/store/cartStore';
 
 interface HeaderProps {
-  variant?: 'transparent' | 'solid';
+  variant?: 'transparent' | 'solid' | 'dark';
 }
 
 export default function Header({ variant = 'solid' }: HeaderProps) {

@@ -62,7 +62,7 @@ export default function ProductDetail() {
 
         <section className="px-12 pb-16 flex flex-col lg:flex-row gap-16">
           {/* Left: Image Gallery (55%) */}
-          <div className="lg:w-[55%] flex gap-4 h-[75vh]">
+          <div className="lg:w-7/12 flex gap-4 h-[75vh]">
             {/* Vertical Thumbnails */}
             <div className="flex flex-col gap-3 w-[80px] shrink-0 h-full overflow-y-auto hide-scrollbar relative">
               <button className="border border-brand-charcoal/30 rounded-sm overflow-hidden p-0.5">
@@ -101,7 +101,7 @@ export default function ProductDetail() {
           </div>
 
           {/* Right: Product Information (45%) */}
-          <div className="lg:w-[45%] flex flex-col pt-4 pr-12">
+          <div className="lg:w-5/12 flex flex-col pt-4 pr-12">
             {/* Tags */}
             <div className="flex items-center gap-3 text-[10px] font-semibold tracking-widest uppercase mb-4 text-brand-charcoal">
               <span className="text-[#A25E54]">LIMITED EDITION</span>
@@ -124,7 +124,7 @@ export default function ProductDetail() {
             </div>
 
             {/* Short Desc */}
-            <p className="text-[13.5px] leading-relaxed text-brand-charcoal/80 mb-8 max-w-[85%]">
+            <p className="text-[13.5px] leading-relaxed text-brand-charcoal/80 mb-8 max-w-prose">
               Hand-embroidered chikankari on breathable cotton. Lightweight, luxurious, and crafted for comfort.
             </p>
 

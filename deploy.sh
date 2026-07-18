@@ -1,44 +1,48 @@
 #!/bin/bash
-# Server Setup & Deployment Script for 234label
-# To be executed on the production server (root@72.61.255.54)
+set -euo pipefail
 
-APP_DIR="/var/www/234label"
-PORT=3000
-APP_NAME="234label-web"
-DOMAIN="234label.com"
+# Server deployment script for Label 234.
+# Run on the VPS after cloning/pulling this repository into /var/www/234label.
 
-echo "Starting deployment for $APP_NAME..."
+APP_DIR="${APP_DIR:-/var/www/234label}"
+NGINX_CONF="${NGINX_CONF:-/etc/nginx/sites-available/234label.conf}"
 
-# 1. Setup Directory
-if [ ! -d "$APP_DIR" ]; then
-  echo "Creating app directory at $APP_DIR..."
-  mkdir -p $APP_DIR
+echo "Deploying Label 234 from $APP_DIR"
+cd "$APP_DIR"
+
+if [ -d .git ]; then
+  git pull --ff-only origin main
 fi
 
-cd $APP_DIR
+echo "Installing storefront dependencies..."
+npm install --legacy-peer-deps
 
-# 2. Pull Latest Code (Assuming repo is already cloned. If not, it will fail here, prompting user to clone first)
-if [ -d ".git" ]; then
-  echo "Pulling latest changes from Git..."
-  git pull origin main
-else
-  echo "Error: Git repository not found in $APP_DIR. Please clone the repository first."
-  exit 1
-fi
-
-# 3. Install & Build
-echo "Installing dependencies..."
-npm install
-
-echo "Building Next.js application..."
+echo "Building storefront..."
 npm run build
 
-# 4. Restart PM2
-echo "Restarting application via PM2 on port $PORT..."
-# Kill all pm2 processes to guarantee the old ArtiQ server dies
-pm2 delete all 2>/dev/null || true
-PORT=$PORT pm2 start npm --name "$APP_NAME" -- start
+echo "Installing admin panel dependencies..."
+npm install --prefix admin-panel --legacy-peer-deps
+
+echo "Building admin panel..."
+npm run build --prefix admin-panel
+
+echo "Installing CMS dependencies..."
+npm install --prefix backend
+
+echo "Building CMS..."
+npm run build --prefix backend
+
+echo "Starting PM2 apps..."
+pm2 startOrReload ecosystem.config.cjs --update-env
 pm2 save
 
-echo "Deployment complete! Your app should be running internally on port $PORT."
-echo "Make sure Nginx is configured to reverse proxy traffic for $DOMAIN to port $PORT."
+if [ -f deploy/nginx/234label.conf ]; then
+  echo "Installing Nginx config..."
+  cp deploy/nginx/234label.conf "$NGINX_CONF"
+  ln -sfn "$NGINX_CONF" /etc/nginx/sites-enabled/234label.conf
+  nginx -t
+  systemctl reload nginx
+fi
+
+echo "Deployment complete."
+echo "Expected internal ports: web=3000 admin=3001 cms=1337"

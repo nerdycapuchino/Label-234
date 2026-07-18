@@ -1,2 +1,11 @@
-﻿node_modules/
+node_modules/
 .next/
+admin-panel/.next/
+backend/.strapi/
+backend/.strapi-updater.json
+backend/.tmp/
+backend/dist/
+backend/types/
+*.log
+*.tsbuildinfo
+.env*
