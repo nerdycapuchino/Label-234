@@ -33,7 +33,8 @@ echo "Building CMS..."
 npm run build --prefix backend
 
 echo "Starting PM2 apps..."
-pm2 startOrReload ecosystem.config.cjs --update-env
+pm2 delete 234label-web 234label-admin 234label-cms 2>/dev/null || true
+pm2 start ecosystem.config.cjs --update-env
 pm2 save
 
 if [ -f deploy/nginx/234label.conf ]; then
