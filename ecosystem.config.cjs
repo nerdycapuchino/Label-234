@@ -8,6 +8,9 @@ module.exports = {
       env: {
         NODE_ENV: "production",
         PORT: "3000",
+        // Storefront reads products/orders from the custom backend API.
+        NEXT_PUBLIC_BACKEND_API_URL: "https://api.234label.com",
+        // Strapi retained for blogs/journal only.
         NEXT_PUBLIC_STRAPI_API_URL: "https://cms.234label.com",
       },
     },
@@ -19,11 +22,20 @@ module.exports = {
       env: {
         NODE_ENV: "production",
         PORT: "3001",
-        STRAPI_API_URL: "https://cms.234label.com",
-        // Set STRAPI_API_TOKEN on the VPS (e.g. via a local .env or `pm2 set`),
-        // do not commit the token. Generate it in Strapi admin under
-        // Settings -> API Tokens (read-only, full access to orders/products).
-        STRAPI_API_TOKEN: process.env.STRAPI_API_TOKEN || "",
+        // Admin panel talks to the custom backend API (JWT auth).
+        NEXT_PUBLIC_API_URL: "https://api.234label.com",
+      },
+    },
+    {
+      name: "234label-api",
+      cwd: "/var/www/234label/backend-api",
+      script: "dist/index.js",
+      env: {
+        NODE_ENV: "production",
+        PORT: "3002",
+        // DATABASE_URL, JWT_SECRET, RAZORPAY_KEY_ID, RAZORPAY_KEY_SECRET,
+        // and CORS_ORIGINS are set on the VPS via backend-api/.env
+        // (never committed). See DEPLOYMENT.md.
       },
     },
     {

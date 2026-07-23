@@ -61,10 +61,13 @@ export async function refundOrder(
   id: string,
   amount: number,
   reason?: string
-): Promise<AdminOrder> {
-  return apiRequest<AdminOrder>(`/api/orders/${id}/refund`, {
-    method: "POST",
-    body: { amount, reason },
-    auth: true,
-  });
+): Promise<{ success: boolean; order: AdminOrder }> {
+  return apiRequest<{ success: boolean; order: AdminOrder }>(
+    `/api/payments/refund`,
+    {
+      method: "POST",
+      body: { orderId: id, amount, reason },
+      auth: true,
+    }
+  );
 }

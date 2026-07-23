@@ -14,6 +14,7 @@ import authRoutes from './routes/auth.js';
 import settingsRoutes from './routes/settings.js';
 import userRoutes from './routes/users.js';
 import statsRoutes from './routes/stats.js';
+import paymentRoutes from './routes/payments.js';
 
 const prisma = new PrismaClient();
 
@@ -22,8 +23,19 @@ const app = Fastify({
 });
 
 // Plugins
+const defaultOrigins = [
+  'http://localhost:3000',
+  'http://localhost:3001',
+  'https://234label.com',
+  'https://www.234label.com',
+  'https://admin.234label.com',
+];
+const corsOrigins = process.env.CORS_ORIGINS
+  ? process.env.CORS_ORIGINS.split(',').map((o) => o.trim()).filter(Boolean)
+  : defaultOrigins;
+
 app.register(fastifyCors, {
-  origin: ['http://localhost:3000', 'http://localhost:3001', 'http://admin.234label.com', 'http://234label.com'],
+  origin: corsOrigins,
   credentials: true,
 });
 
@@ -50,13 +62,15 @@ app.register(customerRoutes, { prefix: '/api/customers' });
 app.register(settingsRoutes, { prefix: '/api/settings' });
 app.register(userRoutes, { prefix: '/api/users' });
 app.register(statsRoutes, { prefix: '/api/stats' });
+app.register(paymentRoutes, { prefix: '/api/payments' });
 
 // Error handler
-app.setErrorHandler((error, request, reply) => {
+app.setErrorHandler((error: any, request, reply) => {
   app.log.error(error);
-  reply.status(error.statusCode || 500).send({
-    statusCode: error.statusCode || 500,
-    message: error.message,
+  const status = typeof error?.statusCode === 'number' ? error.statusCode : 500;
+  reply.status(status).send({
+    statusCode: status,
+    message: error?.message ?? 'Internal Server Error',
   });
 });
 

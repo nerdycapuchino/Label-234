@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import {
   getAdminOrders,
   updateOrderStatus,
+  refundOrder,
   type AdminOrder,
   type ProductionStatus,
 } from "@/lib/orders";
@@ -84,6 +85,29 @@ export default function AdminOrders() {
     }
   }
 
+  async function handleRefund(order: AdminOrder) {
+    const input = prompt(
+      `Refund amount for #${order.orderNumber} (max ₹${order.totalAmount}). Enter amount:`,
+      String(order.totalAmount)
+    );
+    if (input === null) return;
+    const amount = Number(input);
+    if (!Number.isFinite(amount) || amount <= 0 || amount > order.totalAmount) {
+      setError("Invalid refund amount.");
+      return;
+    }
+    setUpdatingId(order.id);
+    setError("");
+    try {
+      await refundOrder(order.id, amount);
+      await load();
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Refund failed");
+    } finally {
+      setUpdatingId("");
+    }
+  }
+
   return (
     <div className="p-8 space-y-8">
       <div className="flex items-center justify-between border-b border-border pb-6">
@@ -154,6 +178,16 @@ export default function AdminOrders() {
                         </option>
                       ))}
                     </select>
+                    {(order.paymentStatus === "COMPLETED" ||
+                      order.paymentStatus === "PARTIAL_REFUND") && (
+                      <button
+                        onClick={() => handleRefund(order)}
+                        disabled={updatingId === order.id}
+                        className="px-3 py-1 text-xs border border-border rounded-md hover:bg-accent transition-colors disabled:opacity-50"
+                      >
+                        Refund
+                      </button>
+                    )}
                   </div>
                 </div>
               ))}
