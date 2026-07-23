@@ -13,15 +13,29 @@ export default async function CollectionsPage() {
         <h1 className="font-serif text-4xl mb-8 text-brand-charcoal">All Collections</h1>
         <p className="opacity-70 mb-12 text-brand-charcoal">Discover our exclusive one-of-one fabrics.</p>
 
+        {products.length === 0 ? (
+          <div className="py-20 text-center border-y border-brand-border">
+            <p className="text-brand-charcoal/70 mb-2">No fabrics available right now.</p>
+            <p className="text-[12px] text-brand-charcoal/50">
+              New one-of-one pieces are added regularly. Check back soon.
+            </p>
+          </div>
+        ) : (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {products.map((product) => (
             <Link href={`/collections/${product.slug}`} key={product.id} className="group">
               <div className="aspect-[3/4] bg-brand-sand rounded-sm mb-4 overflow-hidden group-hover:opacity-90 transition-opacity">
-                <img
-                  src={product.images[0]}
-                  alt={product.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                />
+                {product.images[0] ? (
+                  <img
+                    src={product.images[0]}
+                    alt={product.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center text-[11px] uppercase tracking-widest text-brand-charcoal/40">
+                    No Image
+                  </div>
+                )}
               </div>
               <div className="flex items-start justify-between gap-4">
                 <div>
@@ -40,6 +54,7 @@ export default async function CollectionsPage() {
             </Link>
           ))}
         </div>
+        )}
       </div>
       <Footer />
     </main>

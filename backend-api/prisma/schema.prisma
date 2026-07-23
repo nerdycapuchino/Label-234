@@ -1,0 +1,279 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Admin Users for backend panel
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  name      String
+  role      Role     @default(ADMIN)
+  active    Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([email])
+}
+
+enum Role {
+  SUPER_ADMIN
+  ADMIN
+  MANAGER
+}
+
+// Product (base fabric template)
+model Product {
+  id               String   @id @default(cuid())
+  slug             String   @unique
+  title            String
+  description      String   @db.Text
+  fabricType       String   // Cotton, Silk, Georgette, etc.
+  work             String   // Chikankari, Printed, Zari, etc.
+  pricePerMeter    Float
+  widthInches      Int?
+  careInstructions String
+  isActive         Boolean  @default(true)
+  isSoldOut        Boolean  @default(false)
+  eligibleForBespoke Boolean @default(true)
+
+  images           ProductImage[]
+  fabrics          Fabric[]
+  orderItems       OrderItem[]
+
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  @@index([slug])
+  @@index([isActive])
+}
+
+// Product images
+model ProductImage {
+  id        String   @id @default(cuid())
+  productId String
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  url       String
+  altText   String?
+  position  Int      @default(0)
+
+  createdAt DateTime @default(now())
+
+  @@index([productId])
+}
+
+// Fabric (individual fabric entry - USP: fabric library with roll tracking)
+model Fabric {
+  id             String   @id @default(cuid())
+  productId      String
+  product        Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  rollNumber     String   @unique // Unique identifier per roll
+  quantityMeters Float    // Meters available
+  reservedMeters Float    @default(0) // Meters reserved in orders
+  soldMeters     Float    @default(0) // Meters sold
+
+  status         FabricStatus @default(AVAILABLE) // AVAILABLE, RESERVED, SOLD_OUT
+
+  rolls          FabricRoll[]
+  orderItems     OrderItem[]
+
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  @@index([productId])
+  @@index([status])
+  @@index([rollNumber])
+}
+
+enum FabricStatus {
+  AVAILABLE
+  RESERVED
+  SOLD_OUT
+}
+
+// Fabric Roll tracking (sub-units of Fabric)
+model FabricRoll {
+  id        String   @id @default(cuid())
+  fabricId  String
+  fabric    Fabric   @relation(fields: [fabricId], references: [id], onDelete: Cascade)
+
+  rollSubNumber String   // e.g., ROLL-001-A, ROLL-001-B
+  metersAvailable Float
+  reservedFor   String?  // Customer email or order ID
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([fabricId])
+}
+
+// Customer
+model Customer {
+  id    String  @id @default(cuid())
+  email String  @unique
+  name  String
+  phone String?
+
+  measurements CustomerMeasurement[]
+  addresses    CustomerAddress[]
+  orders       Order[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([email])
+}
+
+// Customer measurements (for bespoke tailoring)
+model CustomerMeasurement {
+  id         String   @id @default(cuid())
+  customerId String
+  customer   Customer @relation(fields: [customerId], references: [id], onDelete: Cascade)
+
+  name       String   // "Standard", "Winter", etc.
+  // Measurements in cm
+  chest      Float?
+  waist      Float?
+  length     Float?
+  shoulder   Float?
+  armLength  Float?
+
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@index([customerId])
+}
+
+// Customer addresses
+model CustomerAddress {
+  id         String   @id @default(cuid())
+  customerId String
+  customer   Customer @relation(fields: [customerId], references: [id], onDelete: Cascade)
+
+  label      String   // "Home", "Office", etc.
+  street     String
+  city       String
+  state      String
+  postalCode String
+  country    String   @default("IN")
+  isDefault  Boolean  @default(false)
+
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@index([customerId])
+}
+
+// Order
+model Order {
+  id             String   @id @default(cuid())
+  orderNumber    String   @unique
+  customerId     String
+  customer       Customer @relation(fields: [customerId], references: [id], onDelete: Cascade)
+
+  subtotal       Float
+  shippingCost   Float    @default(0)
+  tax            Float    @default(0)
+  totalAmount    Float
+
+  paymentStatus  PaymentStatus @default(PENDING)
+  paymentMethod  String?  // "razorpay", "upi", etc.
+  razorpayOrderId String?
+  razorpayPaymentId String?
+
+  productionStatus ProductionStatus @default(ORDER_PLACED)
+
+  items          OrderItem[]
+  statusHistory  OrderStatusHistory[]
+
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  @@index([customerId])
+  @@index([orderNumber])
+  @@index([paymentStatus])
+  @@index([productionStatus])
+}
+
+enum PaymentStatus {
+  PENDING
+  COMPLETED
+  FAILED
+  REFUNDED
+  PARTIAL_REFUND
+}
+
+enum ProductionStatus {
+  ORDER_PLACED
+  FABRIC_RESERVED
+  CUTTING
+  STITCHING
+  QUALITY_CHECK
+  SHIPPED
+  DELIVERED
+  CANCELLED
+}
+
+// Order Item (line item in order)
+model OrderItem {
+  id       String @id @default(cuid())
+  orderId  String
+  order    Order  @relation(fields: [orderId], references: [id], onDelete: Cascade)
+
+  productId String
+  product   Product @relation(fields: [productId], references: [id])
+
+  fabricId  String?
+  fabric    Fabric? @relation(fields: [fabricId], references: [id])
+
+  quantity  Int
+  lengthMeters Float // For fabric orders
+  pricePerMeter Float
+  totalPrice Float
+
+  // Bespoke tailoring fields
+  isCustomTailored Boolean @default(false)
+  neckline  String?
+  sleeves   String?
+  length    String?
+  customNotes String? @db.Text
+
+  createdAt DateTime @default(now())
+
+  @@index([orderId])
+  @@index([productId])
+}
+
+// Order status history (for tracking production)
+model OrderStatusHistory {
+  id        String   @id @default(cuid())
+  orderId   String
+  order     Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+
+  status    ProductionStatus
+  note      String?  @db.Text
+
+  createdAt DateTime @default(now())
+
+  @@index([orderId])
+}
+
+// Settings
+model Settings {
+  id    String  @id @default(cuid())
+  key   String  @unique
+  value String  @db.Text
+
+  updatedAt DateTime @updatedAt
+
+  @@index([key])
+}

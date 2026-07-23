@@ -13,6 +13,28 @@ interface ProductDetailPageProps {
 export default async function ProductDetailPage({ params }: ProductDetailPageProps) {
   const { id } = await params;
   const product = await getProductBySlug(id);
+
+  if (!product) {
+    return (
+      <main className="min-h-screen bg-brand-warmWhite font-sans text-brand-charcoal">
+        <Header variant="solid" />
+        <div className="max-w-[1920px] mx-auto pt-40 px-6 md:px-12 pb-40 text-center min-h-[50vh]">
+          <h1 className="font-serif text-3xl mb-4">Fabric not found</h1>
+          <p className="text-[13px] text-brand-charcoal/70 mb-8">
+            This fabric may have been sold or is no longer available.
+          </p>
+          <Link
+            href="/collections"
+            className="inline-block bg-brand-softBlack text-white py-3 px-8 text-[11px] font-semibold tracking-widest uppercase hover:bg-black transition-colors"
+          >
+            Back to Collections
+          </Link>
+        </div>
+        <Footer />
+      </main>
+    );
+  }
+
   const [featuredImage, ...thumbnailImages] = product.images;
 
   return (
@@ -28,24 +50,32 @@ export default async function ProductDetailPage({ params }: ProductDetailPagePro
 
         <section className="px-6 md:px-12 pb-16 flex flex-col lg:flex-row gap-16">
           <div className="lg:w-7/12 flex gap-4 h-[75vh] min-h-[520px]">
-            <div className="hidden sm:flex flex-col gap-3 w-[80px] shrink-0 h-full overflow-y-auto hide-scrollbar relative">
-              {[featuredImage, ...thumbnailImages].map((image, index) => (
-                <button
-                  key={`${image}-${index}`}
-                  className={`border rounded-sm overflow-hidden p-0.5 ${index === 0 ? "border-brand-charcoal/30" : "border-transparent hover:border-brand-border"}`}
-                  type="button"
-                >
-                  <img
-                    src={image}
-                    alt={`${product.title} thumbnail ${index + 1}`}
-                    className={`w-full h-[100px] object-cover rounded-sm ${index === 0 ? "" : "opacity-70 hover:opacity-100 transition-opacity"}`}
-                  />
-                </button>
-              ))}
-            </div>
+            {product.images.length > 1 && (
+              <div className="hidden sm:flex flex-col gap-3 w-[80px] shrink-0 h-full overflow-y-auto hide-scrollbar relative">
+                {[featuredImage, ...thumbnailImages].map((image, index) => (
+                  <button
+                    key={`${image}-${index}`}
+                    className={`border rounded-sm overflow-hidden p-0.5 ${index === 0 ? "border-brand-charcoal/30" : "border-transparent hover:border-brand-border"}`}
+                    type="button"
+                  >
+                    <img
+                      src={image}
+                      alt={`${product.title} thumbnail ${index + 1}`}
+                      className={`w-full h-[100px] object-cover rounded-sm ${index === 0 ? "" : "opacity-70 hover:opacity-100 transition-opacity"}`}
+                    />
+                  </button>
+                ))}
+              </div>
+            )}
 
             <div className="flex-1 relative rounded-sm overflow-hidden bg-brand-ivory cursor-crosshair">
-              <img src={featuredImage} alt={product.title} className="w-full h-full object-cover" />
+              {featuredImage ? (
+                <img src={featuredImage} alt={product.title} className="w-full h-full object-cover" />
+              ) : (
+                <div className="w-full h-full flex items-center justify-center text-[12px] uppercase tracking-widest text-brand-charcoal/40">
+                  No Image
+                </div>
+              )}
             </div>
           </div>
 

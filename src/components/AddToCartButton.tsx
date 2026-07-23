@@ -25,7 +25,7 @@ export default function AddToCartButton({ product }: AddToCartButtonProps) {
       id: product.id,
       title: product.title,
       price: product.pricePerMeter,
-      image: product.images[0],
+      image: product.images[0] ?? "",
       quantity: 1,
       length,
     });

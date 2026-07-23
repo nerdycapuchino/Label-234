@@ -19,6 +19,11 @@ module.exports = {
       env: {
         NODE_ENV: "production",
         PORT: "3001",
+        STRAPI_API_URL: "https://cms.234label.com",
+        // Set STRAPI_API_TOKEN on the VPS (e.g. via a local .env or `pm2 set`),
+        // do not commit the token. Generate it in Strapi admin under
+        // Settings -> API Tokens (read-only, full access to orders/products).
+        STRAPI_API_TOKEN: process.env.STRAPI_API_TOKEN || "",
       },
     },
     {

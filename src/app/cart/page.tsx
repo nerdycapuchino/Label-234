@@ -39,7 +39,9 @@ export default function CartPage() {
                   <div key={item.id} className="grid grid-cols-1 md:grid-cols-12 gap-4 items-center border-b border-brand-border/50 pb-8">
                     <div className="col-span-1 md:col-span-6 flex gap-6">
                       <div className="w-24 h-32 shrink-0 bg-brand-sand">
-                        <img src={item.image} alt={item.title} className="w-full h-full object-cover" />
+                        {item.image ? (
+                          <img src={item.image} alt={item.title} className="w-full h-full object-cover" />
+                        ) : null}
                       </div>
                       <div className="flex flex-col justify-center">
                         <span className="text-[9px] uppercase tracking-widest text-brand-charcoal/50 font-semibold mb-1">Fabric</span>
